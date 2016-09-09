@@ -10,11 +10,11 @@
         <input type="number" ng-model="bankBalance">
       </p>
       <p>Your bank balance is RM{{ bankBalance | number: 2 }}.</p>
-      <p>The fuel price is RM{{ fuelPrice }} per litre.</p>
+      <p>The fuel price is RM{{ fuelPrice | number: 2 }} per litre.</p>
       <p>Enter your fuel commision (RM):
         <input type="number" ng-model="fuelCommision">
       </p>
-      <p>Your fuel cost is RM{{ fuelCost }} per litre.</p>
+      <p>Your fuel cost is RM{{ fuelCost | number: 2 }} per litre.</p>
       <p>Enter amount of fuel you are receiving (litres):
         <input type="number" ng-model="fuelReceivingAmount">
       </p>
