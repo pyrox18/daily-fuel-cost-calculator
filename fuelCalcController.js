@@ -4,7 +4,7 @@ app.controller("fuelCalcController", function($scope) {
   $scope.bankBalance = 0;
   $scope.bankBalanceInput = "";
   $scope.bankBalanceIsNumber = angular.isNumber($scope.bankBalance);
-  $scope.fuelPrice = 1.65;
+  $scope.fuelPrice = 1.70;
   $scope.fuelCommision = 0;
   $scope.fuelCost = $scope.fuelPrice - $scope.fuelCommision;
   $scope.$watch('fuelCommision', function ()
