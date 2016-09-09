@@ -5,7 +5,22 @@
   <script src="fuelCalcController.js"></script>
   <body>
     <div ng-app="fuelCalc" ng-controller="fuelCalcController">
-      <h1>{{ test }}</h1>
+      <h1>Daily Fuel Cost Calculator</h1>
+      <p>Input your current bank balance (RM):
+        <input type="number" ng-model="bankBalance">
+      </p>
+      <p>Your bank balance is RM{{ bankBalance | number: 2 }}.</p>
+      <p>The fuel price is RM{{ fuelPrice }} per litre.</p>
+      <p>Enter your fuel commision (RM):
+        <input type="number" ng-model="fuelCommision">
+      </p>
+      <p>Your fuel cost is RM{{ fuelCost }} per litre.</p>
+      <p>Enter amount of fuel you are receiving (litres):
+        <input type="number" ng-model="fuelReceivingAmount">
+      </p>
+      <p>You are receiving {{ fuelReceivingAmount | number }} litres of fuel which costs RM{{ fuelReceivingCost | number: 2 }} in total.</p>
+      <p>The difference between your balance and the fuel cost is RM{{ cashDifference | number: 2 }}.</p>
+      <p>{{ enoughMoneyMessage }}</p>
     </div>
   </body>
 </html>
