@@ -1,1 +1,1 @@
-var app = angular.module("fuelCalc", []); 
+var app = angular.module("fuelCalc", ['ui.bootstrap']); 
