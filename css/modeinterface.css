@@ -1,0 +1,18 @@
+.safe
+{
+  color: #00cc00;
+}
+.unsafe
+{
+  color: #ff2020;
+}
+.default
+{
+  color: #000000;
+}
+.summary
+{
+  color: #6f6f6f;
+  font-size: 13px;
+  line-height: 1;
+}

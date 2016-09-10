@@ -1,23 +1,4 @@
-<style>
-  .safe
-  {
-    color: #00cc00;
-  }
-  .unsafe
-  {
-    color: #ff2020;
-  }
-  .default
-  {
-    color: #000000;
-  }
-  .summary
-  {
-  color: #6f6f6f;
-  font-size: 13px;
-  line-height: 1;
-  }
-</style>
+<link rel="stylesheet" type="text/css" href="css/modeinterface.css">
 
 <h4>The difference between your bank account balance and the fuel cost is RM{{ cashDifference | number: 2 }}.</h4>
 <h3 ng-class="enoughMoneyMessageClass">{{ enoughMoneyMessage }}</h3>
