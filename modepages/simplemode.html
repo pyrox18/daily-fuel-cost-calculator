@@ -11,21 +11,32 @@
   {
     color: #000000;
   }
+  .summary
+  {
+  color: #6f6f6f;
+  font-size: 13px;
+  line-height: 1;
+  }
 </style>
 
-<h4>The difference between your balance and the fuel cost is RM{{ cashDifference | number: 2 }}.</h4>
+<h4>The difference between your bank account balance and the fuel cost is RM{{ cashDifference | number: 2 }}.</h4>
 <h3 ng-class="enoughMoneyMessageClass">{{ enoughMoneyMessage }}</h3>
 <br />
-<p>Current bank balance (RM):
-  <input type="number" ng-model="bankBalance">
-</p>
-<p>Your bank balance is RM{{ bankBalance | number: 2 }}.</p>
-<p>The fuel price is RM{{ fuelPrice | number: 2 }} per litre.</p>
-<p>Enter your fuel commision (RM):
-  <input type="number" ng-model="fuelCommision">
-</p>
-<p>Your fuel cost is RM{{ fuelCost | number: 2 }} per litre.</p>
-<p>Enter amount of fuel you are receiving (litres):
-  <input type="number" ng-model="fuelReceivingAmount">
-</p>
-<p>You are receiving {{ fuelReceivingAmount | number }} litres of fuel which costs RM{{ fuelReceivingCost | number: 2 }} in total.</p>
+<div class="summary">
+  <p>Bank account balance: RM{{ bankBalance | number: 2 }}</p>
+  <p>Fuel price: RM{{ fuelPrice | number: 2 }}/litre</p>
+  <p>Fuel cost: RM{{ fuelCost | number: 2 }}/litre</p>
+  <p>Total fuel receiving: {{ fuelReceivingAmount | number }} litres, RM{{ fuelReceivingCost | number: 2 }}</p>
+</div>
+<br />
+<div>
+  <p>Current bank account balance (RM):
+    <input type="number" ng-model="bankBalance">
+  </p>
+  <p>Your fuel commision (RM):
+    <input type="number" ng-model="fuelCommision">
+  </p>
+  <p>Amount of fuel you are receiving (litres):
+    <input type="number" ng-model="fuelReceivingAmount">
+  </p>
+</div>
