@@ -2,5 +2,8 @@
 *.js~
 
 .DS_Store
+<<<<<<< Updated upstream
 
 *.html~
+=======
+>>>>>>> Stashed changes
