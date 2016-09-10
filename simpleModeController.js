@@ -5,7 +5,6 @@ app.controller("simpleModeController", function($scope) {
   
   $scope.fuelPrice = 1.70;
   $scope.fuelCommision = 0;
-  //$scope.fuelCost = $scope.fuelPrice - $scope.fuelCommision;
   $scope.$watch('fuelCommision', function ()
   {
     $scope.fuelCost = (Math.round(100*($scope.fuelPrice - $scope.fuelCommision)))/100;
