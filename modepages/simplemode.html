@@ -33,10 +33,16 @@
   <p>Current bank account balance (RM):
     <input type="number" ng-model="bankBalance">
   </p>
+  <p>Fuel type:
+    <select ng-model="fuelPrice" ng-options="type for (type, price) in fuelData"></select>
+  </p>
   <p>Your fuel commision (RM):
     <input type="number" ng-model="fuelCommision">
   </p>
   <p>Amount of fuel you are receiving (litres):
     <input type="number" ng-model="fuelReceivingAmount">
   </p>
+</div>
+<div>
+  {{ fuelData }}
 </div>
