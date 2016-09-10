@@ -1,12 +1,15 @@
-app.controller("simpleModeController", function($scope) {
+app.controller("simpleModeController", function($scope, $http) {
   $scope.Math = window.Math;
 
   $scope.bankBalance = 0;
   
   $scope.fuelPrice = 1.70;
+  $http.get("fuelPriceData.js").then(function(response) {
+    $scope.fuelData = response.data;
+  });
+  
   $scope.fuelCommision = 0;
-  //$scope.fuelCost = $scope.fuelPrice - $scope.fuelCommision;
-  $scope.$watch('fuelCommision', function ()
+  $scope.$watchGroup(['fuelCommision', 'fuelPrice'], function ()
   {
     $scope.fuelCost = (Math.round(100*($scope.fuelPrice - $scope.fuelCommision)))/100;
   })
@@ -19,7 +22,7 @@ app.controller("simpleModeController", function($scope) {
   })
   
   $scope.cashDifference = $scope.bankBalance - $scope.fuelReceivingCost;
-  $scope.$watchGroup(['fuelReceivingCost', 'bankBalance', 'fuelCost'], function ()
+  $scope.$watchGroup(['fuelReceivingCost', 'bankBalance', 'fuelCost', 'fuelPrice'], function ()
   {
     $scope.cashDifference = $scope.bankBalance - $scope.fuelReceivingCost;
     $scope.isThereEnoughMoney($scope.bankBalance, $scope.fuelReceivingCost);
