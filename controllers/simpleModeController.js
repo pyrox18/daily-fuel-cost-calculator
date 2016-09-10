@@ -4,7 +4,7 @@ app.controller("simpleModeController", function($scope, $http) {
   $scope.bankBalance = 0;
   
   $scope.fuelPrice = 1.70;
-  $http.get("fuelPriceData.js").then(function(response) {
+  $http.get("data/fuelPriceData.js").then(function(response) {
     $scope.fuelData = response.data;
   });
   
