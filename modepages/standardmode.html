@@ -39,9 +39,9 @@
           <th>Cost (RM)</th>
         </tr>
         <tr ng-repeat="day in fuelDays">
-          <th>{{$index + 1}}</th>
-          <th><input type="number" style="width:60%;" ng-model="day.amount"></th>
-          <th>RM{{ day.cost | number: 2 }}</th>
+          <td>{{$index + 1}}</td>
+          <td><input type="number" style="width:60%;" ng-model="day.amount"></td>
+          <td>RM{{ day.cost | number: 2 }}</td>
         </tr>
         <tr>
           <th>Sum</th>
