@@ -1,3 +1,5 @@
+// Rounding errors are still unaccounted for - needs fixing later on
+
 app.controller("standardModeController", function($scope, $http) {
   $scope.Math = window.Math;
   
@@ -7,6 +9,30 @@ app.controller("standardModeController", function($scope, $http) {
 
   $scope.totalFuelReceivingCost = 0;
   $scope.bankBalance = 0;
+  $scope.$watchGroup(['bankBalance', 'totalFuelReceivingCost'], function ()
+  {
+    $scope.cashDifference = $scope.bankBalance - $scope.totalFuelReceivingCost;
+    $scope.isThereEnoughMoney($scope.bankBalance, $scope.totalFuelReceivingCost);
+  });
+
+  $scope.isThereEnoughMoney = function(balance, cost)
+  {
+    if (cost == 0)
+    {
+      $scope.enoughMoneyMessage = "No deliveries today?";
+      $scope.enoughMoneyMessageClass = "default";
+    } 
+    else if (balance >= cost)
+    {
+      $scope.enoughMoneyMessage = "You have enough money in your bank balance for this delivery.";
+      $scope.enoughMoneyMessageClass = "safe";
+    }
+    else
+    {
+      $scope.enoughMoneyMessage = "You need more money in your bank account!";
+      $scope.enoughMoneyMessageClass = "unsafe";
+    }
+  }
 
   $scope.fuelTypeData = [
     {
@@ -43,42 +69,22 @@ app.controller("standardModeController", function($scope, $http) {
 
   $scope.$watch('fuelTypeData', function ()
   {
+    $scope.totalFuelReceivingCost = 0;
     for (var i = 0; i < $scope.fuelTypeData.length; i++)
     {
       $scope.fuelTypeData[i].cost = (Math.round(100*($scope.fuelTypeData[i].price - $scope.fuelTypeData[i].commission)))/100;
+      $scope.totalFuelReceivingCost += $scope.fuelTypeData[i].sumOfFuelCost;
     }
   }, true);
-
+    
   $scope.$watch('fuelDays', function ()
   {
+    $scope.fuelTypeData[0].sumOfFuelAmount = 0;
+    $scope.fuelTypeData[0].sumOfFuelCost = 0;
     for (var i = 0; i < $scope.fuelDays.length; i++)
     {
       $scope.fuelDays[i].cost = $scope.fuelTypeData[0].cost * $scope.fuelDays[i].amount;
-      /*if ($scope.isAddDay == false)
-      {
-        $scope.fuelTypeData[0].sumOfFuelAmount = 0;
-        $scope.fuelTypeData[0].sumOfFuelCost = 0;
-      }
-      else
-        $scope.isAddDay = false;
-      //$scope.fuelTypeData[0].sumOfFuelAmount = 0;
       $scope.fuelTypeData[0].sumOfFuelAmount += $scope.fuelDays[i].amount;
-      //$scope.fuelTypeData[0].sumOfFuelCost = 0;
-      $scope.fuelTypeData[0].sumOfFuelCost += $scope.fuelDays[i].cost;*/
-    }
-    for (var i = 0; i < $scope.fuelDays.length; i++)
-    {
-      //if ($scope.isAddDay == true)
-      //{
-        var tempAmount = $scope.fuelTypeData[0].sumOfFuelAmount;
-        var tempCost = $scope.fuelTypeData[0].sumOfFuelCost;
-        $scope.fuelTypeData[0].sumOfFuelAmount = 0;
-        $scope.fuelTypeData[0].sumOfFuelCost = 0;
-        //$scope.isAddDay = false;
-      //}
-      //$scope.fuelTypeData[0].sumOfFuelAmount = 0;
-      $scope.fuelTypeData[0].sumOfFuelAmount += $scope.fuelDays[i].amount;
-      //$scope.fuelTypeData[0].sumOfFuelCost = 0;
       $scope.fuelTypeData[0].sumOfFuelCost += $scope.fuelDays[i].cost;
     }
   }, true);
@@ -90,14 +96,11 @@ app.controller("standardModeController", function($scope, $http) {
         amount: 0,
         cost: 0
       }
-    )
-    $scope.isAddDay = true;
+    );
   };
 
   $scope.removeDay = function()
   {
     $scope.fuelDays.splice(-1, 1);
   }
-  
-  $scope.enoughMoneyMessage = "Standard mode is still in development - check back later!";
 });
