@@ -132,4 +132,10 @@ app.controller("standardModeController", function($scope, $http) {
   {
     $scope.fuelDays[index].splice(-1, 1);
   }
+
+  $scope.resetDay = function (index)
+  {
+    $scope.fuelDays[index].length = 0;
+    $scope.addDay(index);
+  }
 });
