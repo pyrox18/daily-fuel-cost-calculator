@@ -59,10 +59,24 @@ app.controller("standardModeController", function($scope, $http) {
   ];
 
   $scope.fuelDays = [
-    {
-      amount: 0,
-      cost: 0
-    }
+    [
+      {
+        amount: 0,
+        cost: 0
+      }
+    ],
+    [
+      {
+        amount: 0,
+        cost: 0
+      }
+    ],
+    [
+      {
+        amount: 0,
+        cost: 0
+      }
+    ]
   ];
 
   // BUG: Fuel cost per day and total fuel cost does not update when fuel commission changes
@@ -83,15 +97,15 @@ app.controller("standardModeController", function($scope, $http) {
     $scope.fuelTypeData[0].sumOfFuelCost = 0;
     for (var i = 0; i < $scope.fuelDays.length; i++)
     {
-      $scope.fuelDays[i].cost = $scope.fuelTypeData[0].cost * $scope.fuelDays[i].amount;
-      $scope.fuelTypeData[0].sumOfFuelAmount += $scope.fuelDays[i].amount;
-      $scope.fuelTypeData[0].sumOfFuelCost += $scope.fuelDays[i].cost;
+      $scope.fuelDays[0][i].cost = $scope.fuelTypeData[0].cost * $scope.fuelDays[0][i].amount;
+      $scope.fuelTypeData[0].sumOfFuelAmount += $scope.fuelDays[0][i].amount;
+      $scope.fuelTypeData[0].sumOfFuelCost += $scope.fuelDays[0][i].cost;
     }
   }, true);
 
-  $scope.addDay = function ()
+  $scope.addDay = function (index)
   {
-    $scope.fuelDays.push(
+    $scope.fuelDays[index].push(
       {
         amount: 0,
         cost: 0
@@ -99,8 +113,8 @@ app.controller("standardModeController", function($scope, $http) {
     );
   };
 
-  $scope.removeDay = function()
+  $scope.removeDay = function (index)
   {
-    $scope.fuelDays.splice(-1, 1);
+    $scope.fuelDays[index].splice(-1, 1);
   }
 });

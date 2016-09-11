@@ -38,7 +38,7 @@
           <th>Fuel (litres)</th>
           <th>Cost (RM)</th>
         </tr>
-        <tr ng-repeat="day in fuelDays">
+        <tr ng-repeat="day in fuelDays[0]">
           <td>{{$index + 1}}</td>
           <td><input type="number" style="width:60%;" ng-model="day.amount"></td>
           <td>RM{{ day.cost | number: 2 }}</td>
@@ -50,8 +50,8 @@
         </tr>
       </table>
       <p>
-      <button class="btn btn-default" ng-click="addDay()">Add day</button>
-      <button class="btn btn-default" ng-click="removeDay()">Remove day</button>
+      <button class="btn btn-default" ng-click="addDay(0)">Add day</button>
+      <button class="btn btn-default" ng-click="removeDay(0)">Remove day</button>
       </p>
     </div>
     <div class="col-md-4">{{ fuelDays }}</div>
