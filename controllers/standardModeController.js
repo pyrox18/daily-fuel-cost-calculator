@@ -93,13 +93,16 @@ app.controller("standardModeController", function($scope, $http) {
     
   $scope.$watch('fuelDays', function ()
   {
-    $scope.fuelTypeData[0].sumOfFuelAmount = 0;
-    $scope.fuelTypeData[0].sumOfFuelCost = 0;
     for (var i = 0; i < $scope.fuelDays.length; i++)
     {
-      $scope.fuelDays[0][i].cost = $scope.fuelTypeData[0].cost * $scope.fuelDays[0][i].amount;
-      $scope.fuelTypeData[0].sumOfFuelAmount += $scope.fuelDays[0][i].amount;
-      $scope.fuelTypeData[0].sumOfFuelCost += $scope.fuelDays[0][i].cost;
+      $scope.fuelTypeData[i].sumOfFuelAmount = 0;
+      $scope.fuelTypeData[i].sumOfFuelCost = 0;
+      for (var j = 0; j < $scope.fuelDays[i].length; j++)
+      {
+        $scope.fuelDays[i][j].cost = $scope.fuelTypeData[i].cost * $scope.fuelDays[i][j].amount;
+        $scope.fuelTypeData[i].sumOfFuelAmount += $scope.fuelDays[i][j].amount;
+        $scope.fuelTypeData[i].sumOfFuelCost += $scope.fuelDays[i][j].cost;
+      }
     }
   }, true);
 
