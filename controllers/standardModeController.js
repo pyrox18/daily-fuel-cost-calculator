@@ -79,6 +79,9 @@ app.controller("standardModeController", function($scope, $http) {
     ]
   ];
 
+  $scope.addButtonDisable = [false, false, false];
+  $scope.removeButtonDisable = [false, false, false];
+
   // BUG: Fuel cost per day and total fuel cost does not update when fuel commission changes
 
   $scope.$watch('fuelTypeData', function ()
@@ -95,6 +98,15 @@ app.controller("standardModeController", function($scope, $http) {
   {
     for (var i = 0; i < $scope.fuelDays.length; i++)
     {
+      if ($scope.fuelDays[i].length <= 1)
+        $scope.removeButtonDisable[i] = true;
+      else if ($scope.fuelDays[i].length >= 5)
+        $scope.addButtonDisable[i] = true;
+      else
+      {
+        $scope.addButtonDisable[i] = false;
+        $scope.removeButtonDisable[i] = false;
+      }
       $scope.fuelTypeData[i].sumOfFuelAmount = 0;
       $scope.fuelTypeData[i].sumOfFuelCost = 0;
       for (var j = 0; j < $scope.fuelDays[i].length; j++)
