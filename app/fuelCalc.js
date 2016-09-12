@@ -3,8 +3,8 @@ var app = angular.module("fuelCalc", ['ngRoute']);
 app.config(function($routeProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'modepages/simplemode.html',
-      controller: 'simpleModeController'
+      templateUrl: 'modepages/standardmode.html',
+      controller: 'standardModeController'
     })
     .when('/simple', {
       templateUrl: 'modepages/simplemode.html',
