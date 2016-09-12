@@ -1,1 +1,150 @@
-<p>{{ message }}</p>
+<link rel="stylesheet" type="text/css" href="css/modeinterface.css">
+
+<div>
+  <div class="col-md-4">
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#prereqs">Prerequisites</a>
+          </h4>
+        </div>
+        <div id="prereqs" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <p>Bank account balance (RM)</p>
+	    <input type="number" class="form-control">
+	  </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#fueltype1">Fuel Type 1</a>
+          </h4>
+        </div>
+        <div id="fueltype1" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Fuel type <select></select></p>
+	    <p>Fuel commission</p>
+	    <input type="number" class="form-control">
+	    <table class="table">
+              <tr>
+                <th>Day</th>
+                <th>Fuel (litres)</th>
+                <th>Cost (RM)</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td><input type="number" style="width:60%;"></td>
+                <td>12,400.00</td>
+              </tr>
+              <tr>
+                <th>Sum</th>
+                <th>12,345</th>
+                <th>40,290.00</th>
+              </tr>
+            </table>
+	  </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#fueltype2">Fuel Type 2</a>
+          </h4>
+        </div>
+        <div id="fueltype2" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Fuel type <select></select></p>
+	    <p>Fuel commission</p>
+	    <input type="number" class="form-control">
+	    <table class="table">
+              <tr>
+                <th>Day</th>
+                <th>Fuel (litres)</th>
+                <th>Cost (RM)</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td><input type="number" style="width:60%;"></td>
+                <td>12,400.00</td>
+              </tr>
+              <tr>
+                <th>Sum</th>
+                <th>12,345</th>
+                <th>40,290.00</th>
+              </tr>
+            </table>
+	  </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#fueltype3">Fuel Type 3</a>
+          </h4>
+        </div>
+        <div id="fueltype3" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Fuel type <select></select></p>
+	    <p>Fuel commission</p>
+	    <input type="number" class="form-control">
+	    <table class="table">
+              <tr>
+                <th>Day</th>
+                <th>Fuel (litres)</th>
+                <th>Cost (RM)</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td><input type="number" style="width:60%;"></td>
+                <td>12,400.00</td>
+              </tr>
+              <tr>
+                <th>Sum</th>
+                <th>12,345</th>
+                <th>40,290.00</th>
+              </tr>
+            </table>
+	  </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#fueltype4">Fuel Type 4</a>
+          </h4>
+        </div>
+        <div id="fueltype4" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Fuel type <select></select></p>
+	    <p>Fuel commission</p>
+	    <input type="number" class="form-control">
+	    <table class="table">
+              <tr>
+                <th>Day</th>
+                <th>Fuel (litres)</th>
+                <th>Cost (RM)</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td><input type="number" style="width:60%;"></td>
+                <td>12,400.00</td>
+              </tr>
+              <tr>
+                <th>Sum</th>
+                <th>12,345</th>
+                <th>40,290.00</th>
+              </tr>
+            </table>
+	  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <h4>The difference between your bank account balance and the fuel cost is RM{{ cashDifference | number: 2 }}.</h4>
+    <h3 ng-class="enoughMoneyMessageClass">Test123!!{{ enoughMoneyMessage }}</h3>
+  </div>
+</div>
+
