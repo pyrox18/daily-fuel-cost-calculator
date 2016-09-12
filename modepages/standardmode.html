@@ -27,6 +27,7 @@
     <input type="number" ng-model="fuelReceivingAmount">
   </p>
   -->
+  <hr>
   <div>
     <div class="col-md-4">
       <p>Fuel type: <select ng-model="fuelTypeData[0].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[0].price | number: 2}}/litre)</p>
@@ -54,6 +55,7 @@
       <button class="btn btn-default" ng-click="removeDay(0)" ng-disabled="removeButtonDisable[0]">Remove day</button>
       <button class="btn btn-default" ng-click="resetDay(0)">Reset</button>
       </p>
+      <hr>
     </div>
     <div class="col-md-4">
       <p>Fuel type: <select ng-model="fuelTypeData[1].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[1].price | number: 2}}/litre)</p>
@@ -81,6 +83,7 @@
       <button class="btn btn-default" ng-click="removeDay(1)" ng-disabled="removeButtonDisable[1]">Remove day</button>
       <button class="btn btn-default" ng-click="resetDay(1)">Reset</button>
       </p>
+      <hr>
     </div>
     <div class="col-md-4">
       <p>Fuel type: <select ng-model="fuelTypeData[2].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[2].price | number: 2}}/litre)</p>
@@ -108,6 +111,7 @@
       <button class="btn btn-default" ng-click="removeDay(2)" ng-disabled="removeButtonDisable[2]">Remove day</button>
       <button class="btn btn-default" ng-click="resetDay(2)">Reset</button>
       </p>
+      <hr>
     </div>
   </div>
 </div>
