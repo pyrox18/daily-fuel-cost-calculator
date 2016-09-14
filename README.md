@@ -1,12 +1,25 @@
 # Daily Fuel Cost Calculator
-Calculator for petrol station dealers to find out how much money they need to satisfy a fuel delivery.
+
+Introduction
+--------------------------------------------------------------------------------
+
+Calculator for petrol station dealers to find out how much money they need to satisfy a fuel delivery. There are currently 2 modes (Simple and Standard) available for use, with the default mode being Standard. The advanced mode is still in development.
 
 This web application is accessible through the URL https://pyrox18.github.io/daily-fuel-cost-calculator.
 
-Currently, a simple calculation mode is available for use. The calculator will provide feedback based on the bank account balance given, the fuel type (which dictates the fuel price per litre used), the fuel commission per litre given, and the amount of fuel to be received that is given. The results are updated on-the-fly as input is provided.
+Installation and Usage
+--------------------------------------------------------------------------------
 
-The standard and advanced modes are still being developed.
+Clone or download the repository with the button on the top-right of the GitHub page. The website must be hosted on a web server for full functionality. Visit the address designated by your web server application to access the website.
 
-The calculator utilises Bootstrap (http://getbootstrap.com/) for the UI framework, and AngularJS (https://angularjs.org/) for the dynamic page elements.
+License
+--------------------------------------------------------------------------------
 
-Should there be any problems or bugs with the calculator, an issue can be opened to raise awareness on the problem. Kindly state the issue as clearly as possible to facilitate the debugging process.
+The Daily Fuel Cost Calculator server is distributed under the terms of the [GNU General Public License v3.0][1].
+
+[1]: https://github.com/pyrox18/daily-fuel-cost-calculator/blob/master/LICENSE
+
+Credits
+--------------------------------------------------------------------------------
+
+- Haryz Izzudin (pyrox18) - design, development
