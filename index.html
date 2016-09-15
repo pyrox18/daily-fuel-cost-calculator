@@ -1,50 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- For Bootstrap -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <title>Daily Fuel Cost Calculator</title>
 
-    <!-- Dependencies -->
+    <!-- Dependencies (Bootstrap and AngularJS) -->
     <script src="dependencies/angular.min.js"></script>
     <script src="dependencies/angular-route.js"></script>
     <script src="dependencies/jquery.min.js"></script>
     <script src="dependencies/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="dependencies/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 
-    <!-- Custom dependencies -->
+    <!-- Custom dependencies (CSS, app and controller scripts) -->
     <link rel="stylesheet" type="text/css" href="css/indexstyle.css">
     <script src="app/fuelCalc.js"></script>
     <script src="controllers/mainController.js"></script>
     <script src="controllers/simpleModeController.js"></script>
     <script src="controllers/standardModeController.js"></script>
     <script src="controllers/advancedModeController.js"></script>
+    
   </head>
+  
   <body>
+    
     <div class="container" ng-app="fuelCalc" ng-controller="mainController">
+      
+      <!-- Header -->
       <div class="page-header">
         <h1>Daily Fuel Cost Calculator</h1>
         <p class="lead">A tool to check if you have enough money for your next fuel delivery.</p>
       </div>
 
+      <!-- Mode selector -->
       <ul class="nav nav-pills">
         <li><a data-toggle="pill" href="#simple">Simple</a></li>
         <li class="active"><a data-toggle="pill" href="#standard">Standard</a></li>
         <li><a data-toggle="pill" href="#advanced">Advanced</a></li>
       </ul>
 
+      <!-- Mode interface -->
       <div id="main">
         <br />
         <div ng-view></div>
       </div>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <p class="text-muted">&copy; 2016 Haryz Izzudin (pyrox18). Check out the <a href="https://github.com/pyrox18/daily-fuel-cost-calculator">GitHub page</a> to know more about this calculator!</p>
       </div>
     </footer>
+    
   </body>
+  
 </html>
