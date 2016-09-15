@@ -1,8 +1,12 @@
+<!-- Include CSS for summary section -->
 <link rel="stylesheet" type="text/css" href="css/modeinterface.css">
 
+<!-- Results section -->
 <h4>The difference between your bank account balance and the fuel cost is RM{{ cashDifference | number: 2 }}.</h4>
 <h3 ng-class="enoughMoneyMessageClass">{{ enoughMoneyMessage }}</h3>
 <br />
+
+<!-- Data summary -->
 <div class="summary">
   <p>Bank account balance: RM{{ bankBalance | number: 2 }}</p>
   <p>Fuel price: RM{{ fuelPrice | number: 2 }}/litre</p>
@@ -10,6 +14,8 @@
   <p>Total fuel receiving: {{ fuelReceivingAmount | number }} litres, RM{{ fuelReceivingCost | number: 2 }}</p>
 </div>
 <br />
+
+<!-- Data input -->
 <div>
   <p>Current bank account balance (RM):
     <input type="number" ng-model="bankBalance">

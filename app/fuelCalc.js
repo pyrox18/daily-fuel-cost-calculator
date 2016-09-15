@@ -1,7 +1,10 @@
+// AngularJS app initialisation and config for page routing
+
 var app = angular.module("fuelCalc", ['ngRoute']); 
 
 app.config(function($routeProvider) {
   $routeProvider
+    // Default mode to load:
     .when('/', {
       templateUrl: 'modepages/standardmode.html',
       controller: 'standardModeController'
