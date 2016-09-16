@@ -89,7 +89,8 @@ app.controller("standardModeController", function($scope, $http) {
     $scope.totalFuelReceivingCost = 0;
     for (var i = 0; i < $scope.fuelTypeData.length; i++)
     {
-      $scope.fuelTypeData[i].cost = (Math.round(100*($scope.fuelTypeData[i].price - $scope.fuelTypeData[i].commission)))/100;
+      //$scope.fuelTypeData[i].cost = (Math.round(100*($scope.fuelTypeData[i].price - $scope.fuelTypeData[i].commission)))/100;
+      $scope.fuelTypeData[i].cost = $scope.fuelTypeData[i].price - $scope.fuelTypeData[i].commission;
       $scope.totalFuelReceivingCost += $scope.fuelTypeData[i].sumOfFuelCost;
     }
   }, true);
