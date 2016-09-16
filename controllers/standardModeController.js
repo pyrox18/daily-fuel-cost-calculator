@@ -1,5 +1,3 @@
-// Rounding errors are still unaccounted for - needs fixing later on
-
 app.controller("standardModeController", function($scope, $http) {
   $scope.Math = window.Math;
   
@@ -82,15 +80,23 @@ app.controller("standardModeController", function($scope, $http) {
   $scope.addButtonDisable = [false, false, false];
   $scope.removeButtonDisable = [false, false, false];
 
-  // BUG: Fuel cost per day and total fuel cost does not update when fuel commission changes
-
   $scope.$watch('fuelTypeData', function ()
   {
     $scope.totalFuelReceivingCost = 0;
     for (var i = 0; i < $scope.fuelTypeData.length; i++)
     {
-      $scope.fuelTypeData[i].cost = (Math.round(100*($scope.fuelTypeData[i].price - $scope.fuelTypeData[i].commission)))/100;
+      //$scope.fuelTypeData[i].cost = (Math.round(100*($scope.fuelTypeData[i].price - $scope.fuelTypeData[i].commission)))/100;
+      $scope.fuelTypeData[i].cost = $scope.fuelTypeData[i].price - $scope.fuelTypeData[i].commission;
       $scope.totalFuelReceivingCost += $scope.fuelTypeData[i].sumOfFuelCost;
+
+      $scope.fuelTypeData[i].sumOfFuelAmount = 0;
+      $scope.fuelTypeData[i].sumOfFuelCost = 0;
+      for (var j = 0; j < $scope.fuelDays[i].length; j++)
+      {
+        $scope.fuelDays[i][j].cost = $scope.fuelTypeData[i].cost * $scope.fuelDays[i][j].amount;
+        $scope.fuelTypeData[i].sumOfFuelAmount += $scope.fuelDays[i][j].amount;
+        $scope.fuelTypeData[i].sumOfFuelCost += $scope.fuelDays[i][j].cost;
+      }
     }
   }, true);
     
