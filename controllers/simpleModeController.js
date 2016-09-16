@@ -11,7 +11,8 @@ app.controller("simpleModeController", function($scope, $http) {
   $scope.fuelCommision = 0;
   $scope.$watchGroup(['fuelCommision', 'fuelPrice'], function ()
   {
-    $scope.fuelCost = (Math.round(100*($scope.fuelPrice - $scope.fuelCommision)))/100;
+    //$scope.fuelCost = (Math.round(100*($scope.fuelPrice - $scope.fuelCommision)))/100;
+    $scope.fuelCost = $scope.fuelPrice - $scope.fuelCommision;
   })
   
   $scope.fuelReceivingAmount = 0;
