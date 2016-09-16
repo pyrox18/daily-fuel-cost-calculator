@@ -1,5 +1,3 @@
-// Rounding errors are still unaccounted for - needs fixing later on
-
 app.controller("standardModeController", function($scope, $http) {
   $scope.Math = window.Math;
   
@@ -81,8 +79,6 @@ app.controller("standardModeController", function($scope, $http) {
 
   $scope.addButtonDisable = [false, false, false];
   $scope.removeButtonDisable = [false, false, false];
-
-  // BUG: Fuel cost per day and total fuel cost does not update when fuel commission changes
 
   $scope.$watch('fuelTypeData', function ()
   {
