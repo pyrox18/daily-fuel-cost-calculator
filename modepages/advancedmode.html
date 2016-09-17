@@ -12,7 +12,7 @@
         <div id="prereqs" class="panel-collapse collapse in">
           <div class="panel-body">
             <p>Bank account balance (RM)</p>
-	    <input type="number" class="form-control">
+	    <input type="number" class="form-control" ng-model="bankBalance">
 	  </div>
         </div>
       </div>
@@ -24,24 +24,25 @@
         </div>
         <div id="fueltype1" class="panel-collapse collapse">
           <div class="panel-body">
-            <p>Fuel type <select></select></p>
-	    <p>Fuel commission</p>
-	    <input type="number" class="form-control">
+            <p>Fuel type <select ng-model="fuelTypeData[0].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[0].price | number: 2}}/litre)</p>
+	    <p>Fuel commission (RM)</p>
+	    <input type="number" class="form-control" ng-model="fuelTypeData[0].commission">
+            <p>Fuel cost: RM{{ fuelTypeData[0].cost | number: 6 }}/litre</p>
 	    <table class="table">
               <tr>
                 <th>Day</th>
                 <th>Fuel (litres)</th>
                 <th>Cost (RM)</th>
               </tr>
-              <tr>
-                <td>1</td>
-                <td><input type="number" style="width:60%;"></td>
-                <td>12,400.00</td>
+              <tr ng-repeat="day in fuelDays[0]">
+                <td>{{$index + 1}}</td>
+                <td><input type="number" style="width:60%;" ng-model="day.amount"></td>
+                <td>{{ day.cost | number: 2 }}</td>
               </tr>
               <tr>
                 <th>Sum</th>
-                <th>12,345</th>
-                <th>40,290.00</th>
+                <th>{{ fuelTypeData[0].sumOfFuelAmount | number }}</th>
+                <th>{{ fuelTypeData[0].sumOfFuelCost | number: 2 }}</th>
               </tr>
             </table>
             <p>
@@ -60,24 +61,25 @@
         </div>
         <div id="fueltype2" class="panel-collapse collapse">
           <div class="panel-body">
-            <p>Fuel type <select></select></p>
-	    <p>Fuel commission</p>
-	    <input type="number" class="form-control">
-	    <table class="table">
+            <p>Fuel type <select ng-model="fuelTypeData[1].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[1].price | number: 2}}/litre)</p>
+	    <p>Fuel commission (RM)</p>
+	    <input type="number" class="form-control" ng-model="fuelTypeData[1].commission">
+            <p>Fuel cost: RM{{ fuelTypeData[1].cost | number: 6 }}/litre</p>
+            <table class="table">
               <tr>
                 <th>Day</th>
                 <th>Fuel (litres)</th>
                 <th>Cost (RM)</th>
               </tr>
-              <tr>
-                <td>1</td>
-                <td><input type="number" style="width:60%;"></td>
-                <td>12,400.00</td>
+              <tr ng-repeat="day in fuelDays[1]">
+                <td>{{$index + 1}}</td>
+                <td><input type="number" style="width:60%;" ng-model="day.amount"></td>
+                <td>{{ day.cost | number: 2 }}</td>
               </tr>
               <tr>
                 <th>Sum</th>
-                <th>12,345</th>
-                <th>40,290.00</th>
+                <th>{{ fuelTypeData[1].sumOfFuelAmount | number }}</th>
+                <th>{{ fuelTypeData[1].sumOfFuelCost | number: 2 }}</th>
               </tr>
             </table>
             <p>
@@ -96,24 +98,25 @@
         </div>
         <div id="fueltype3" class="panel-collapse collapse">
           <div class="panel-body">
-            <p>Fuel type <select></select></p>
-	    <p>Fuel commission</p>
-	    <input type="number" class="form-control">
+            <p>Fuel type <select ng-model="fuelTypeData[2].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[2].price | number: 2}}/litre)</p>
+	    <p>Fuel commission (RM)</p>
+	    <input type="number" class="form-control" ng-model="fuelTypeData[2].commission">
+            <p>Fuel cost: RM{{ fuelTypeData[2].cost | number: 6 }}/litre</p>
 	    <table class="table">
               <tr>
                 <th>Day</th>
                 <th>Fuel (litres)</th>
                 <th>Cost (RM)</th>
               </tr>
-              <tr>
-                <td>1</td>
-                <td><input type="number" style="width:60%;"></td>
-                <td>12,400.00</td>
+              <tr ng-repeat="day in fuelDays[2]">
+                <td>{{$index + 1}}</td>
+                <td><input type="number" style="width:60%;" ng-model="day.amount"></td>
+                <td>{{ day.cost | number: 2 }}</td>
               </tr>
               <tr>
                 <th>Sum</th>
-                <th>12,345</th>
-                <th>40,290.00</th>
+                <th>{{ fuelTypeData[2].sumOfFuelAmount | number }}</th>
+                <th>{{ fuelTypeData[2].sumOfFuelCost | number: 2 }}</th>
               </tr>
             </table>
             <p>
@@ -132,24 +135,25 @@
         </div>
         <div id="fueltype4" class="panel-collapse collapse">
           <div class="panel-body">
-            <p>Fuel type <select></select></p>
-	    <p>Fuel commission</p>
-	    <input type="number" class="form-control">
+            <p>Fuel type <select ng-model="fuelTypeData[3].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[3].price | number: 2}}/litre)</p>
+	    <p>Fuel commission (RM)</p>
+	    <input type="number" class="form-control" ng-model="fuelTypeData[3].commission">
+            <p>Fuel cost: RM{{ fuelTypeData[3].cost | number: 6 }}/litre</p>
 	    <table class="table">
               <tr>
                 <th>Day</th>
                 <th>Fuel (litres)</th>
                 <th>Cost (RM)</th>
               </tr>
-              <tr>
-                <td>1</td>
-                <td><input type="number" style="width:60%;"></td>
-                <td>12,400.00</td>
+              <tr ng-repeat="day in fuelDays[3]">
+                <td>{{$index + 1}}</td>
+                <td><input type="number" style="width:60%;" ng-model="day.amount"></td>
+                <td>{{ day.cost | number: 2 }}</td>
               </tr>
               <tr>
                 <th>Sum</th>
-                <th>12,345</th>
-                <th>40,290.00</th>
+                <th>{{ fuelTypeData[3].sumOfFuelAmount | number }}</th>
+                <th>{{ fuelTypeData[3].sumOfFuelCost | number: 2 }}</th>
               </tr>
             </table>
             <p>
@@ -164,7 +168,12 @@
   </div>
   <div class="col-md-8">
     <h4>The difference between your bank account balance and the fuel cost is RM{{ cashDifference | number: 2 }}.</h4>
-    <h3 ng-class="enoughMoneyMessageClass">Test123!!{{ enoughMoneyMessage }}</h3>
+    <h3 ng-class="enoughMoneyMessageClass">{{ enoughMoneyMessage }}</h3>
+    <br />
+    <div class="summary">
+      <p>Bank account balance: RM{{ bankBalance | number: 2 }}</p>
+      <p>Total fuel receiving cost: RM{{ totalFuelReceivingCost | number: 2 }}</p>
+    </div>
   </div>
 </div>
 
