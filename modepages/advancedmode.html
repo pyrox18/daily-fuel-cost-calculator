@@ -1,27 +1,42 @@
+<!-- Include CSS for summary section -->
 <link rel="stylesheet" type="text/css" href="css/modeinterface.css">
 
+<!-- Overarching div - currently has no purpose -->
 <div>
+  
+  <!-- Input panels -->
   <div class="col-md-4">
     <div class="panel-group">
+      
+      <!-- Prerequisites panel -->
       <div class="panel panel-default">
+        
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-target="#prereqs">Prerequisites</a>
           </h4>
         </div>
+        
         <div id="prereqs" class="panel-collapse collapse in">
           <div class="panel-body">
             <p>Bank account balance (RM)</p>
 	    <input type="number" class="form-control" ng-model="bankBalance">
 	  </div>
         </div>
+        
       </div>
+      <!-- End of prerequisites panel -->
+
+      <!-- Fuel type 1 -->
       <div class="panel panel-default">
+        
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-target="#fueltype1">Fuel Type 1</a>
           </h4>
         </div>
+
+        <!-- FT1 inputs-->
         <div id="fueltype1" class="panel-collapse collapse">
           <div class="panel-body">
             <p>Fuel type <select ng-model="fuelTypeData[0].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[0].price | number: 2}}/litre)</p>
@@ -52,13 +67,21 @@
             </p>
 	  </div>
         </div>
+        <!-- End of FT1 inputs -->
+        
       </div>
+      <!-- End of fuel type 1 -->
+
+      <!-- Fuel type 2 -->
       <div class="panel panel-default">
+
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-target="#fueltype2">Fuel Type 2</a>
           </h4>
         </div>
+
+        <!-- FT2 inputs -->
         <div id="fueltype2" class="panel-collapse collapse">
           <div class="panel-body">
             <p>Fuel type <select ng-model="fuelTypeData[1].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[1].price | number: 2}}/litre)</p>
@@ -89,13 +112,21 @@
             </p>
 	  </div>
         </div>
+        <!-- End of FT2 inputs-->
+        
       </div>
+      <!-- End of fuel type 2 -->
+
+      <!-- Fuel type 3 -->
       <div class="panel panel-default">
+        
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-target="#fueltype3">Fuel Type 3</a>
           </h4>
         </div>
+
+        <!-- FT3 inputs -->
         <div id="fueltype3" class="panel-collapse collapse">
           <div class="panel-body">
             <p>Fuel type <select ng-model="fuelTypeData[2].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[2].price | number: 2}}/litre)</p>
@@ -126,13 +157,21 @@
             </p>
 	  </div>
         </div>
+        <!-- End of FT3 inputs -->
+        
       </div>
+      <!-- End of fuel type 3 -->
+
+      <!-- Fuel type 4 -->
       <div class="panel panel-default">
+        
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-target="#fueltype4">Fuel Type 4</a>
           </h4>
         </div>
+
+        <!-- FT4 inputs -->
         <div id="fueltype4" class="panel-collapse collapse">
           <div class="panel-body">
             <p>Fuel type <select ng-model="fuelTypeData[3].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[3].price | number: 2}}/litre)</p>
@@ -163,9 +202,16 @@
             </p>
 	  </div>
         </div>
+        <!-- End of FT4 inputs -->
+        
       </div>
+      <!-- End of fuel type 4 -->
+      
     </div>
   </div>
+  <!-- End of input panels -->
+
+  <!-- Data summary panel -->
   <div class="col-md-8">
     <h4>The difference between your bank account balance and the fuel cost is RM{{ cashDifference | number: 2 }}.</h4>
     <h3 ng-class="enoughMoneyMessageClass">{{ enoughMoneyMessage }}</h3>
@@ -175,5 +221,7 @@
       <p>Total fuel receiving cost: RM{{ totalFuelReceivingCost | number: 2 }}</p>
     </div>
   </div>
+  <!-- End of data summary panel -->
+  
 </div>
 
