@@ -90,6 +90,8 @@ app.controller("advancedModeController", function($scope, $http) {
     ]
   ];
 
+  $scope.featureTankData = false;
+
   $scope.addButtonDisable = [false, false, false, false];
   $scope.removeButtonDisable = [false, false, false, false];
 

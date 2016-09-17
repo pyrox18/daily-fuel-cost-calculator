@@ -7,6 +7,28 @@
   <!-- Input panels -->
   <div class="col-md-4">
     <div class="panel-group">
+
+      <!-- Features panel -->
+      <div class="panel panel-default">
+        
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#features">Features</a>
+          </h4>
+        </div>
+        
+        <div id="features" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="featureTankData"> Tank capacity, balance, ullage and safety
+              </label>
+            </div>
+	  </div>
+        </div>
+
+      </div>
+      <!-- End of features panel -->
       
       <!-- Prerequisites panel -->
       <div class="panel panel-default">
@@ -43,6 +65,15 @@
 	    <p>Fuel commission (RM)</p>
 	    <input type="number" class="form-control" ng-model="fuelTypeData[0].commission">
             <p>Fuel cost: RM{{ fuelTypeData[0].cost | number: 6 }}/litre</p>
+            <div ng-show="featureTankData">
+              <p>Tank capacity (litres)</p>
+              <input type="number" class="form-control" value="27000">
+              <p>Tank ullage (%)</p>
+              <input type="number" class="form-control" value="10">
+              <p>Tank balance (litres)</p>
+              <input type="number" class="form-control">
+              <p>Tank safety: 86%</p>
+            </div>
 	    <table class="table">
               <tr>
                 <th>Day</th>
@@ -88,6 +119,15 @@
 	    <p>Fuel commission (RM)</p>
 	    <input type="number" class="form-control" ng-model="fuelTypeData[1].commission">
             <p>Fuel cost: RM{{ fuelTypeData[1].cost | number: 6 }}/litre</p>
+            <div ng-show="featureTankData">
+              <p>Tank capacity (litres)</p>
+              <input type="number" class="form-control" value="27000">
+              <p>Tank ullage (%)</p>
+              <input type="number" class="form-control" value="10">
+              <p>Tank balance (litres)</p>
+              <input type="number" class="form-control">
+              <p>Tank safety: 86%</p>
+            </div>
             <table class="table">
               <tr>
                 <th>Day</th>
@@ -133,6 +173,15 @@
 	    <p>Fuel commission (RM)</p>
 	    <input type="number" class="form-control" ng-model="fuelTypeData[2].commission">
             <p>Fuel cost: RM{{ fuelTypeData[2].cost | number: 6 }}/litre</p>
+            <div ng-show="featureTankData">
+              <p>Tank capacity (litres)</p>
+              <input type="number" class="form-control" value="27000">
+              <p>Tank ullage (%)</p>
+              <input type="number" class="form-control" value="10">
+              <p>Tank balance (litres)</p>
+              <input type="number" class="form-control">
+              <p>Tank safety: 86%</p>
+            </div>
 	    <table class="table">
               <tr>
                 <th>Day</th>
@@ -178,6 +227,15 @@
 	    <p>Fuel commission (RM)</p>
 	    <input type="number" class="form-control" ng-model="fuelTypeData[3].commission">
             <p>Fuel cost: RM{{ fuelTypeData[3].cost | number: 6 }}/litre</p>
+            <div ng-show="featureTankData">
+              <p>Tank capacity (litres)</p>
+              <input type="number" class="form-control" value="27000">
+              <p>Tank ullage (%)</p>
+              <input type="number" class="form-control" value="10">
+              <p>Tank balance (litres)</p>
+              <input type="number" class="form-control">
+              <p>Tank safety: 86%</p>
+            </div>
 	    <table class="table">
               <tr>
                 <th>Day</th>
@@ -213,12 +271,68 @@
 
   <!-- Data summary panel -->
   <div class="col-md-8">
-    <h4>The difference between your bank account balance and the fuel cost is RM{{ cashDifference | number: 2 }}.</h4>
+    <h4>Difference of bank balance and fuel cost: <span ng-class="enoughMoneyMessageClass">RM{{ cashDifference | number: 2 }}</span></h4>
     <h3 ng-class="enoughMoneyMessageClass">{{ enoughMoneyMessage }}</h3>
     <br />
-    <div class="summary">
+    <div>
       <p>Bank account balance: RM{{ bankBalance | number: 2 }}</p>
       <p>Total fuel receiving cost: RM{{ totalFuelReceivingCost | number: 2 }}</p>
+
+      <!-- Data summary table -->
+      <table class="table">
+        <tr>
+          <th>Fuel Type</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+        </tr>
+        <tr>
+          <th>Quantity (litres)</th>
+          <td>{{ fuelTypeData[0].sumOfFuelAmount | number }}</td>
+          <td>{{ fuelTypeData[1].sumOfFuelAmount | number }}</td>
+          <td>{{ fuelTypeData[2].sumOfFuelAmount | number }}</td>
+          <td>{{ fuelTypeData[3].sumOfFuelAmount | number }}</td>
+        </tr>
+        <tr>
+          <th>Cost (RM)</th>
+          <td>{{ fuelTypeData[0].sumOfFuelCost | number: 2 }}</td>
+          <td>{{ fuelTypeData[1].sumOfFuelCost | number: 2 }}</td>
+          <td>{{ fuelTypeData[2].sumOfFuelCost | number: 2 }}</td>
+          <td>{{ fuelTypeData[3].sumOfFuelCost | number: 2 }}</td>
+        </tr>
+        <!-- Next 4 rows only shown when feature 1 is checked -->
+        <tr ng-show="featureTankData">
+          <th>Tank capacity (litres)</th>
+          <td>27,000</td>
+          <td>27,000</td>
+          <td>27,000</td>
+          <td>27,000</td>
+        </tr>
+        <tr ng-show="featureTankData">
+          <th>Tank ullage (%)</th>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+        </tr>
+        <tr ng-show="featureTankData">
+          <th>Tank balance (litres)</th>
+          <td>1,000</td>
+          <td>1,000</td>
+          <td>1,000</td>
+          <td>1,000</td>
+        </tr>
+        <tr ng-show="featureTankData">
+          <th>Tank safety (%)</th>
+          <td>10%</td>
+          <td>10%</td>
+          <td>10%</td>
+          <td>10%</td>
+        </tr>
+      </table>
+      <!-- End of data summary table -->
+      <p>{{ featureTankData }}</p>
     </div>
   </div>
   <!-- End of data summary panel -->
