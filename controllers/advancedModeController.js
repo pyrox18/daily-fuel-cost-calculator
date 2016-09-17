@@ -39,8 +39,8 @@ app.controller("advancedModeController", function($scope, $http) {
       cost: 0,
       sumOfFuelAmount: 0,
       sumOfFuelCost: 0,
-      tankCapacity: 0,
-      tankUllage: 0,
+      tankCapacity: 27000,
+      tankUllage: 10,
       tankBalance: 0,
       tankSafety: 100
     },
@@ -50,8 +50,8 @@ app.controller("advancedModeController", function($scope, $http) {
       cost: 0,
       sumOfFuelAmount: 0,
       sumOfFuelCost: 0,
-      tankCapacity: 0,
-      tankUllage: 0,
+      tankCapacity: 27000,
+      tankUllage: 10,
       tankBalance: 0,
       tankSafety: 100
     },
@@ -61,8 +61,8 @@ app.controller("advancedModeController", function($scope, $http) {
       cost: 0,
       sumOfFuelAmount: 0,
       sumOfFuelCost: 0,
-      tankCapacity: 0,
-      tankUllage: 0,
+      tankCapacity: 27000,
+      tankUllage: 10,
       tankBalance: 0,
       tankSafety: 100
     },
@@ -72,8 +72,8 @@ app.controller("advancedModeController", function($scope, $http) {
       cost: 0,
       sumOfFuelAmount: 0,
       sumOfFuelCost: 0,
-      tankCapacity: 0,
-      tankUllage: 0,
+      tankCapacity: 27000,
+      tankUllage: 10,
       tankBalance: 0,
       tankSafety: 100
     }
@@ -106,7 +106,7 @@ app.controller("advancedModeController", function($scope, $http) {
     ]
   ];
 
-  $scope.featureTankData = false;
+  //$scope.featureTankData = false;
 
   $scope.addButtonDisable = [false, false, false, false];
   $scope.removeButtonDisable = [false, false, false, false];
@@ -177,25 +177,4 @@ app.controller("advancedModeController", function($scope, $http) {
     $scope.addButtonDisable[index] = false;
   }
 
-  $scope.$watch('featureTankData', function ()
-  {
-    if ($scope.featureTankData == true)
-    {
-      for (var i = 0; i < $scope.fuelTypeData.length; i++)
-      {
-        $scope.fuelTypeData[i].tankCapacity = 27000;
-        $scope.fuelTypeData[i].tankUllage = 10;
-      }
-    }
-    else
-    {
-      for (var i = 0; i < $scope.fuelTypeData.length; i++)
-      {
-        $scope.fuelTypeData[i].tankCapacity = 0;
-        $scope.fuelTypeData[i].tankUllage = 0;
-        $scope.fuelTypeData[i].tankBalance = 0;
-        $scope.fuelTypeData[i].tankSafety = 0;
-      }
-    }
-  });
 });

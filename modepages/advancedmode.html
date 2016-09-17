@@ -7,28 +7,6 @@
   <!-- Input panels -->
   <div class="col-md-4">
     <div class="panel-group">
-
-      <!-- Features panel -->
-      <div class="panel panel-default">
-        
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-target="#features">Features</a>
-          </h4>
-        </div>
-        
-        <div id="features" class="panel-collapse collapse in">
-          <div class="panel-body">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" ng-model="featureTankData"> Tank capacity, balance, ullage and safety
-              </label>
-            </div>
-	  </div>
-        </div>
-
-      </div>
-      <!-- End of features panel -->
       
       <!-- Prerequisites panel -->
       <div class="panel panel-default">
@@ -65,15 +43,15 @@
 	    <p>Fuel commission (RM)</p>
 	    <input type="number" class="form-control" ng-model="fuelTypeData[0].commission">
             <p>Fuel cost: RM{{ fuelTypeData[0].cost | number: 6 }}/litre</p>
-            <div ng-show="featureTankData">
-              <p>Tank capacity (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[0].tankCapacity">
-              <p>Tank ullage (%)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[0].tankUllage">
-              <p>Tank balance (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[0].tankBalance">
-              <p>Tank safety: {{ fuelTypeData[0].tankSafety }}%</p>
-            </div>
+            
+            <p>Tank capacity (litres)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[0].tankCapacity">
+            <p>Tank ullage (%)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[0].tankUllage">
+            <p>Tank balance (litres)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[0].tankBalance">
+            <p>Tank safety: {{ fuelTypeData[0].tankSafety }}%</p>
+            
 	    <table class="table">
               <tr>
                 <th>Day</th>
@@ -119,15 +97,15 @@
 	    <p>Fuel commission (RM)</p>
 	    <input type="number" class="form-control" ng-model="fuelTypeData[1].commission">
             <p>Fuel cost: RM{{ fuelTypeData[1].cost | number: 6 }}/litre</p>
-            <div ng-show="featureTankData">
-              <p>Tank capacity (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[1].tankCapacity">
-              <p>Tank ullage (%)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[1].tankUllage">
-              <p>Tank balance (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[1].tankBalance">
-              <p>Tank safety: {{ fuelTypeData[1].tankSafety }}%</p>
-            </div>
+
+            <p>Tank capacity (litres)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[1].tankCapacity">
+            <p>Tank ullage (%)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[1].tankUllage">
+            <p>Tank balance (litres)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[1].tankBalance">
+            <p>Tank safety: {{ fuelTypeData[1].tankSafety }}%</p>
+            
             <table class="table">
               <tr>
                 <th>Day</th>
@@ -173,15 +151,15 @@
 	    <p>Fuel commission (RM)</p>
 	    <input type="number" class="form-control" ng-model="fuelTypeData[2].commission">
             <p>Fuel cost: RM{{ fuelTypeData[2].cost | number: 6 }}/litre</p>
-            <div ng-show="featureTankData">
-              <p>Tank capacity (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[2].tankCapacity">
-              <p>Tank ullage (%)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[2].tankUllage">
-              <p>Tank balance (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[2].tankBalance">
-              <p>Tank safety: {{ fuelTypeData[2].tankSafety }}%</p>
-            </div>
+            
+            <p>Tank capacity (litres)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[2].tankCapacity">
+            <p>Tank ullage (%)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[2].tankUllage">
+            <p>Tank balance (litres)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[2].tankBalance">
+            <p>Tank safety: {{ fuelTypeData[2].tankSafety }}%</p>
+
 	    <table class="table">
               <tr>
                 <th>Day</th>
@@ -227,15 +205,15 @@
 	    <p>Fuel commission (RM)</p>
 	    <input type="number" class="form-control" ng-model="fuelTypeData[3].commission">
             <p>Fuel cost: RM{{ fuelTypeData[3].cost | number: 6 }}/litre</p>
-            <div ng-show="featureTankData">
-              <p>Tank capacity (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[3].tankCapacity">
-              <p>Tank ullage (%)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[3].tankUllage">
-              <p>Tank balance (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[3].tankBalance">
-              <p>Tank safety: {{ fuelTypeData[3].tankSafety }}%</p>
-            </div>
+
+            <p>Tank capacity (litres)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[3].tankCapacity">
+            <p>Tank ullage (%)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[3].tankUllage">
+            <p>Tank balance (litres)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[3].tankBalance">
+            <p>Tank safety: {{ fuelTypeData[3].tankSafety }}%</p>
+
 	    <table class="table">
               <tr>
                 <th>Day</th>
@@ -301,29 +279,28 @@
           <td>{{ fuelTypeData[2].sumOfFuelCost | number: 2 }}</td>
           <td>{{ fuelTypeData[3].sumOfFuelCost | number: 2 }}</td>
         </tr>
-        <!-- Next 4 rows only shown when feature 1 is checked -->
-        <tr ng-show="featureTankData">
+        <tr>
           <th>Tank capacity (litres)</th>
           <td>{{ fuelTypeData[0].tankCapacity | number }}</td>
           <td>{{ fuelTypeData[1].tankCapacity | number }}</td>
           <td>{{ fuelTypeData[2].tankCapacity | number }}</td>
           <td>{{ fuelTypeData[3].tankCapacity | number }}</td>
         </tr>
-        <tr ng-show="featureTankData">
+        <tr>
           <th>Tank ullage (%)</th>
           <td>{{ fuelTypeData[0].tankUllage | number }}</td>
           <td>{{ fuelTypeData[1].tankUllage | number }}</td>
           <td>{{ fuelTypeData[2].tankUllage | number }}</td>
           <td>{{ fuelTypeData[3].tankUllage | number }}</td>
         </tr>
-        <tr ng-show="featureTankData">
+        <tr>
           <th>Tank balance (litres)</th>
           <td>{{ fuelTypeData[0].tankBalance | number }}</td>
           <td>{{ fuelTypeData[1].tankBalance | number }}</td>
           <td>{{ fuelTypeData[2].tankBalance | number }}</td>
           <td>{{ fuelTypeData[3].tankBalance | number }}</td>
         </tr>
-        <tr ng-show="featureTankData">
+        <tr>
           <th>Tank safety (%)</th>
           <td>{{ fuelTypeData[0].tankSafety | number }}</td>
           <td>{{ fuelTypeData[1].tankSafety | number }}</td>
@@ -332,7 +309,7 @@
         </tr>
       </table>
       <!-- End of data summary table -->
-      <p>{{ featureTankData }}</p>
+
     </div>
   </div>
   <!-- End of data summary panel -->
