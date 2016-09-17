@@ -154,9 +154,8 @@ app.controller("advancedModeController", function($scope, $http) {
 
   $scope.resetDay = function (index)
   {
-    // BUGGED: Resetting when there are 5 days makes the addDay button inactive
-    // Might be bugged in standard mode too
     $scope.fuelDays[index].length = 0;
     $scope.addDay(index);
+    $scope.addButtonDisable[index] = false;
   }
 });
