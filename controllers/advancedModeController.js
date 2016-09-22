@@ -42,7 +42,8 @@ app.controller("advancedModeController", function($scope, $http) {
       tankCapacity: 27000,
       tankUllage: 10,
       tankBalance: 0,
-      tankSafety: 100
+      tankSafety: 100,
+      estSales: 0
     },
     {
       price: 2.05,
@@ -53,7 +54,8 @@ app.controller("advancedModeController", function($scope, $http) {
       tankCapacity: 27000,
       tankUllage: 10,
       tankBalance: 0,
-      tankSafety: 100
+      tankSafety: 100,
+      estSales: 0
     },
     {
       price: 1.80,
@@ -64,7 +66,8 @@ app.controller("advancedModeController", function($scope, $http) {
       tankCapacity: 27000,
       tankUllage: 10,
       tankBalance: 0,
-      tankSafety: 100
+      tankSafety: 100,
+      estSales: 0
     },
     {
       price: 1.80,
@@ -75,7 +78,8 @@ app.controller("advancedModeController", function($scope, $http) {
       tankCapacity: 27000,
       tankUllage: 10,
       tankBalance: 0,
-      tankSafety: 100
+      tankSafety: 100,
+      estSales: 0
     }
   ];
 

@@ -51,6 +51,8 @@
             <p>Tank balance (litres)</p>
             <input type="number" class="form-control" ng-model="fuelTypeData[0].tankBalance">
             <p>Tank safety: {{ fuelTypeData[0].tankSafety }}%</p>
+            <p>Estimated one-day sales (litres)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[0].estSales">
             
 	    <table class="table">
               <tr>
@@ -105,6 +107,8 @@
             <p>Tank balance (litres)</p>
             <input type="number" class="form-control" ng-model="fuelTypeData[1].tankBalance">
             <p>Tank safety: {{ fuelTypeData[1].tankSafety }}%</p>
+            <p>Estimated one-day sales (litres)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[1].estSales">
             
             <table class="table">
               <tr>
@@ -159,6 +163,8 @@
             <p>Tank balance (litres)</p>
             <input type="number" class="form-control" ng-model="fuelTypeData[2].tankBalance">
             <p>Tank safety: {{ fuelTypeData[2].tankSafety }}%</p>
+            <p>Estimated one-day sales (litres)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[2].estSales">
 
 	    <table class="table">
               <tr>
@@ -213,6 +219,8 @@
             <p>Tank balance (litres)</p>
             <input type="number" class="form-control" ng-model="fuelTypeData[3].tankBalance">
             <p>Tank safety: {{ fuelTypeData[3].tankSafety }}%</p>
+            <p>Estimated one-day sales (litres)</p>
+            <input type="number" class="form-control" ng-model="fuelTypeData[3].estSales">
 
 	    <table class="table">
               <tr>
@@ -299,6 +307,13 @@
           <td>{{ fuelTypeData[1].tankBalance | number }}</td>
           <td>{{ fuelTypeData[2].tankBalance | number }}</td>
           <td>{{ fuelTypeData[3].tankBalance | number }}</td>
+        </tr>
+        <tr>
+          <th>Estimated one-day sales (litres)</th>
+          <td>{{ fuelTypeData[0].estSales | number }}</td>
+          <td>{{ fuelTypeData[1].estSales | number }}</td>
+          <td>{{ fuelTypeData[2].estSales | number }}</td>
+          <td>{{ fuelTypeData[3].estSales | number }}</td>
         </tr>
         <tr>
           <th>Tank safety (%)</th>
