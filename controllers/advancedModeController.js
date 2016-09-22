@@ -122,6 +122,7 @@ app.controller("advancedModeController", function($scope, $http) {
 
   $scope.addButtonDisable = [false, false, false, false];
   $scope.removeButtonDisable = [false, false, false, false];
+  $scope.tankSafetyClass = ["default", "default", "default", "default"]
 
   $scope.$watch('fuelTypeData', function ()
   {
@@ -144,6 +145,18 @@ app.controller("advancedModeController", function($scope, $http) {
 
       $scope.fuelTypeData[i].expectedBalance = $scope.fuelTypeData[i].tankBalance + $scope.fuelTypeData[i].sumOfFuelAmount - $scope.fuelTypeData[i].estSales;
       $scope.fuelTypeData[i].tankSafety = ($scope.fuelTypeData[i].expectedBalance / $scope.fuelTypeData[i].tankCapAfterUllage) * 100;
+      if ($scope.fuelTypeData[i].tankSafety >= 100)
+      {
+        $scope.tankSafetyClass[i] = "unsafe";
+      }
+      else if ($scope.fuelTypeData[i].tankSafety >= 90)
+      {
+        $scope.tankSafetyClass[i] = "warning";
+      }
+      else
+      {
+        $scope.tankSafetyClass[i] = "safe";
+      }
     }
   }, true);
     

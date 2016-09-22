@@ -331,10 +331,10 @@
         </tr>
         <tr>
           <th>Tank safety (%)</th>
-          <td>{{ fuelTypeData[0].tankSafety | number }}</td>
-          <td>{{ fuelTypeData[1].tankSafety | number }}</td>
-          <td>{{ fuelTypeData[2].tankSafety | number }}</td>
-          <td>{{ fuelTypeData[3].tankSafety | number }}</td>
+          <td ng-class="tankSafetyClass[0]">{{ fuelTypeData[0].tankSafety | number }}</td>
+          <td ng-class="tankSafetyClass[1]">{{ fuelTypeData[1].tankSafety | number }}</td>
+          <td ng-class="tankSafetyClass[2]">{{ fuelTypeData[2].tankSafety | number }}</td>
+          <td ng-class="tankSafetyClass[3]">{{ fuelTypeData[3].tankSafety | number }}</td>
         </tr>
       </table>
       <!-- End of data summary table -->
