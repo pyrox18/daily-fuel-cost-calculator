@@ -302,6 +302,13 @@
           <td>{{ fuelTypeData[3].tankUllage | number }}</td>
         </tr>
         <tr>
+          <th>Tank capacity after ullage (litres)</th>
+          <td>{{ fuelTypeData[0].tankCapAfterUllage | number }}</td>
+          <td>{{ fuelTypeData[1].tankCapAfterUllage | number }}</td>
+          <td>{{ fuelTypeData[2].tankCapAfterUllage | number }}</td>
+          <td>{{ fuelTypeData[3].tankCapAfterUllage | number }}</td>
+        </tr>
+        <tr>
           <th>Tank balance (litres)</th>
           <td>{{ fuelTypeData[0].tankBalance | number }}</td>
           <td>{{ fuelTypeData[1].tankBalance | number }}</td>
@@ -331,6 +338,7 @@
         </tr>
       </table>
       <!-- End of data summary table -->
+      <p>{{ fuelTypeData[0].tankCapAfterUllage }}
 
     </div>
   </div>

@@ -41,6 +41,7 @@ app.controller("advancedModeController", function($scope, $http) {
       sumOfFuelCost: 0,
       tankCapacity: 27000,
       tankUllage: 10,
+      tankCapAfterUllage: 0,
       tankBalance: 0,
       tankSafety: 100,
       estSales: 0,
@@ -54,6 +55,7 @@ app.controller("advancedModeController", function($scope, $http) {
       sumOfFuelCost: 0,
       tankCapacity: 27000,
       tankUllage: 10,
+      tankCapAfterUllage: 0,
       tankBalance: 0,
       tankSafety: 100,
       estSales: 0,
@@ -67,6 +69,7 @@ app.controller("advancedModeController", function($scope, $http) {
       sumOfFuelCost: 0,
       tankCapacity: 27000,
       tankUllage: 10,
+      tankCapAfterUllage: 0,
       tankBalance: 0,
       tankSafety: 100,
       estSales: 0,
@@ -80,6 +83,7 @@ app.controller("advancedModeController", function($scope, $http) {
       sumOfFuelCost: 0,
       tankCapacity: 27000,
       tankUllage: 10,
+      tankCapAfterUllage: 0,
       tankBalance: 0,
       tankSafety: 100,
       estSales: 0,
@@ -127,6 +131,7 @@ app.controller("advancedModeController", function($scope, $http) {
       //$scope.fuelTypeData[i].cost = (Math.round(100*($scope.fuelTypeData[i].price - $scope.fuelTypeData[i].commission)))/100;
       $scope.fuelTypeData[i].cost = $scope.fuelTypeData[i].price - $scope.fuelTypeData[i].commission;
       $scope.totalFuelReceivingCost += $scope.fuelTypeData[i].sumOfFuelCost;
+      $scope.fuelTypeData[i].tankCapAfterUllage = $scope.fuelTypeData[i].tankCapacity * ((100 - $scope.fuelTypeData[i].tankUllage) / 100);
 
       $scope.fuelTypeData[i].sumOfFuelAmount = 0;
       $scope.fuelTypeData[i].sumOfFuelCost = 0;
