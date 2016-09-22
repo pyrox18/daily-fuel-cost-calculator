@@ -141,6 +141,9 @@ app.controller("advancedModeController", function($scope, $http) {
         $scope.fuelTypeData[i].sumOfFuelAmount += $scope.fuelDays[i][j].amount;
         $scope.fuelTypeData[i].sumOfFuelCost += $scope.fuelDays[i][j].cost;
       }
+
+      $scope.fuelTypeData[i].expectedBalance = $scope.fuelTypeData[i].tankBalance + $scope.fuelTypeData[i].sumOfFuelAmount - $scope.fuelTypeData[i].estSales;
+      $scope.fuelTypeData[i].tankSafety = ($scope.fuelTypeData[i].expectedBalance / $scope.fuelTypeData[i].tankCapAfterUllage) * 100;
     }
   }, true);
     
