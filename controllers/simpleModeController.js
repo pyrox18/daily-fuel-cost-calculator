@@ -37,12 +37,12 @@ app.controller("simpleModeController", function($scope, $http) {
     } 
     else if (balance >= cost)
     {
-      $scope.enoughMoneyMessage = "You have enough money in your bank balance for this delivery.";
+      $scope.enoughMoneyMessage = "Sufficient funds.";
       $scope.enoughMoneyMessageClass = "safe";
     }
     else
     {
-      $scope.enoughMoneyMessage = "You need more money in your bank account!";
+      $scope.enoughMoneyMessage = "Insufficient funds!";
       $scope.enoughMoneyMessageClass = "unsafe";
     }
   }

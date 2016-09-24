@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="css/modeinterface.css">
 
 <!-- Results section -->
-<h4>The difference between your bank account balance and the fuel cost is RM{{ cashDifference | number: 2 }}.</h4>
+<h4>Bank balance after fuel delivery: <span ng-class="enoughMoneyMessageClass">RM{{ cashDifference | number: 2 }}</span></h4>
 <h3 ng-class="enoughMoneyMessageClass">{{ enoughMoneyMessage }}</h3>
 <br />
 
@@ -16,17 +16,23 @@
 <br />
 
 <!-- Data input -->
-<div>
-  <p>Current bank account balance (RM):
-    <input type="number" ng-model="bankBalance">
-  </p>
-  <p>Fuel type:
-    <select ng-model="fuelPrice" ng-options="type for (type, price) in fuelData"></select>
-  </p>
-  <p>Your fuel commision (RM):
-    <input type="number" ng-model="fuelCommision">
-  </p>
-  <p>Amount of fuel you are receiving (litres):
-    <input type="number" ng-model="fuelReceivingAmount">
-  </p>
+<div class="col-md-4">
+  <form>
+    <div class="form-group">
+      <p>Current bank account balance (RM)</p>
+      <input type="number" class="form-control" ng-model="bankBalance">
+    </div>
+    <div class="form-group">
+      <p>Fuel type</p>
+      <select ng-model="fuelPrice" ng-options="type for (type, price) in fuelData"></select>
+    </div>
+    <div class="form-group">
+      <p>Fuel commision (RM)</p>
+      <input type="number" class="form-control" ng-model="fuelCommision">
+    </div>
+    <div class="form-group">
+      <p>Amount of fuel you are receiving (litres)</p>
+      <input type="number" class="form-control" ng-model="fuelReceivingAmount">
+    </div>
+  </form>
 </div>
