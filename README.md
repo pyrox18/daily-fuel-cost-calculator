@@ -3,7 +3,7 @@
 Introduction
 --------------------------------------------------------------------------------
 
-Calculator for petrol station dealers to find out how much money they need to satisfy a fuel delivery. There are currently 2 modes (Simple and Standard) available for use, with the default mode being Standard. The advanced mode is still in development.
+Calculator for petrol station dealers to find out how much money they need to satisfy a fuel delivery. Three modes (Simple, Standard, and Advanced) are available for use according to the user's requirements.
 
 This web application is accessible through the URL https://pyrox18.github.io/daily-fuel-cost-calculator.
 
@@ -23,3 +23,10 @@ Credits
 --------------------------------------------------------------------------------
 
 - Haryz Izzudin (pyrox18) - design, development
+
+Special Thanks
+--------------------------------------------------------------------------------
+
+- [Glyphicons][2] - UI icons
+
+[2]: https://glyphicons.com

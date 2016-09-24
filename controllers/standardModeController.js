@@ -143,5 +143,6 @@ app.controller("standardModeController", function($scope, $http) {
   {
     $scope.fuelDays[index].length = 0;
     $scope.addDay(index);
+    $scope.addButtonDisable[index] = false;
   }
 });
