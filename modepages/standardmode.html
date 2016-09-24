@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="css/modeinterface.css">
 
 <!-- Results section -->
-<h4>The difference between your bank account balance and the fuel cost is RM{{ cashDifference | number: 2 }}.</h4>
+<h4>Bank balance after fuel delivery: <span ng-class="enoughMoneyMessageClass">RM{{ cashDifference | number: 2 }}</span></h4>
 <h3 ng-class="enoughMoneyMessageClass">{{ enoughMoneyMessage }}</h3>
 <br />
 
