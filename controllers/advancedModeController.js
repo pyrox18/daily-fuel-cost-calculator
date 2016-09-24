@@ -249,6 +249,16 @@ app.controller("advancedModeController", function($scope, $http) {
     $scope.addButtonDisable[index] = false;
   }
 
+  $scope.resetFuelTypeValues = function (index)
+  {
+    $scope.fuelTypeData[index].commission = 0;
+    $scope.fuelTypeData[index].tankCapacity = 27000;
+    $scope.fuelTypeData[index].tankUllage = 10;
+    $scope.fuelTypeData[index].tankBalance = 0;
+    $scope.fuelTypeData[index].estSales = 0;
+    $scope.resetDay(index);
+  }
+
   $scope.resetAllValues = function ()
   {
     $scope.bankBalance = 0;
