@@ -371,78 +371,80 @@
       <p>Total fuel receiving cost: RM{{ totalFuelReceivingCost | number: 2 }}</p>
 
       <!-- Data summary table -->
-      <table class="table">
-        <tr>
-          <th>Fuel Type</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-        </tr>
-        <tr>
-          <th>Quantity (litres)</th>
-          <td>{{ fuelTypeData[0].sumOfFuelAmount | number }}</td>
-          <td>{{ fuelTypeData[1].sumOfFuelAmount | number }}</td>
-          <td>{{ fuelTypeData[2].sumOfFuelAmount | number }}</td>
-          <td>{{ fuelTypeData[3].sumOfFuelAmount | number }}</td>
-        </tr>
-        <tr>
-          <th>Cost (RM)</th>
-          <td>{{ fuelTypeData[0].sumOfFuelCost | number: 2 }}</td>
-          <td>{{ fuelTypeData[1].sumOfFuelCost | number: 2 }}</td>
-          <td>{{ fuelTypeData[2].sumOfFuelCost | number: 2 }}</td>
-          <td>{{ fuelTypeData[3].sumOfFuelCost | number: 2 }}</td>
-        </tr>
-        <tr>
-          <th>Tank capacity (litres)</th>
-          <td>{{ fuelTypeData[0].tankCapacity | number }}</td>
-          <td>{{ fuelTypeData[1].tankCapacity | number }}</td>
-          <td>{{ fuelTypeData[2].tankCapacity | number }}</td>
-          <td>{{ fuelTypeData[3].tankCapacity | number }}</td>
-        </tr>
-        <tr>
-          <th>Tank ullage (%)</th>
-          <td>{{ fuelTypeData[0].tankUllage | number }}</td>
-          <td>{{ fuelTypeData[1].tankUllage | number }}</td>
-          <td>{{ fuelTypeData[2].tankUllage | number }}</td>
-          <td>{{ fuelTypeData[3].tankUllage | number }}</td>
-        </tr>
-        <tr>
-          <th>Tank capacity after ullage (litres)</th>
-          <td>{{ fuelTypeData[0].tankCapAfterUllage | number }}</td>
-          <td>{{ fuelTypeData[1].tankCapAfterUllage | number }}</td>
-          <td>{{ fuelTypeData[2].tankCapAfterUllage | number }}</td>
-          <td>{{ fuelTypeData[3].tankCapAfterUllage | number }}</td>
-        </tr>
-        <tr>
-          <th>Tank balance (litres)</th>
-          <td>{{ fuelTypeData[0].tankBalance | number }}</td>
-          <td>{{ fuelTypeData[1].tankBalance | number }}</td>
-          <td>{{ fuelTypeData[2].tankBalance | number }}</td>
-          <td>{{ fuelTypeData[3].tankBalance | number }}</td>
-        </tr>
-        <tr>
-          <th>Estimated one-day sales (litres)</th>
-          <td>{{ fuelTypeData[0].estSales | number }}</td>
-          <td>{{ fuelTypeData[1].estSales | number }}</td>
-          <td>{{ fuelTypeData[2].estSales | number }}</td>
-          <td>{{ fuelTypeData[3].estSales | number }}</td>
-        </tr>
-        <tr>
-          <th>Expected tank balance after<br />delivery and sales (litres)</th>
-          <td>{{ fuelTypeData[0].expectedBalance | number }}</td>
-          <td>{{ fuelTypeData[1].expectedBalance | number }}</td>
-          <td>{{ fuelTypeData[2].expectedBalance | number }}</td>
-          <td>{{ fuelTypeData[3].expectedBalance | number }}</td>
-        </tr>
-        <tr>
-          <th>Tank safety (%)</th>
-          <td ng-class="tankSafetyClass[0]">{{ fuelTypeData[0].tankSafety | number: 3 }}</td>
-          <td ng-class="tankSafetyClass[1]">{{ fuelTypeData[1].tankSafety | number: 3 }}</td>
-          <td ng-class="tankSafetyClass[2]">{{ fuelTypeData[2].tankSafety | number: 3 }}</td>
-          <td ng-class="tankSafetyClass[3]">{{ fuelTypeData[3].tankSafety | number: 3 }}</td>
-        </tr>
-      </table>
+      <div class="table-responsive">
+	<table class="table">
+          <tr>
+            <th>Fuel Type</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+          </tr>
+          <tr>
+            <th>Quantity (litres)</th>
+            <td>{{ fuelTypeData[0].sumOfFuelAmount | number }}</td>
+            <td>{{ fuelTypeData[1].sumOfFuelAmount | number }}</td>
+            <td>{{ fuelTypeData[2].sumOfFuelAmount | number }}</td>
+            <td>{{ fuelTypeData[3].sumOfFuelAmount | number }}</td>
+          </tr>
+          <tr>
+            <th>Cost (RM)</th>
+            <td>{{ fuelTypeData[0].sumOfFuelCost | number: 2 }}</td>
+            <td>{{ fuelTypeData[1].sumOfFuelCost | number: 2 }}</td>
+            <td>{{ fuelTypeData[2].sumOfFuelCost | number: 2 }}</td>
+            <td>{{ fuelTypeData[3].sumOfFuelCost | number: 2 }}</td>
+          </tr>
+          <tr>
+            <th>Tank capacity (litres)</th>
+            <td>{{ fuelTypeData[0].tankCapacity | number }}</td>
+            <td>{{ fuelTypeData[1].tankCapacity | number }}</td>
+            <td>{{ fuelTypeData[2].tankCapacity | number }}</td>
+            <td>{{ fuelTypeData[3].tankCapacity | number }}</td>
+          </tr>
+          <tr>
+            <th>Tank ullage (%)</th>
+            <td>{{ fuelTypeData[0].tankUllage | number }}</td>
+            <td>{{ fuelTypeData[1].tankUllage | number }}</td>
+            <td>{{ fuelTypeData[2].tankUllage | number }}</td>
+            <td>{{ fuelTypeData[3].tankUllage | number }}</td>
+          </tr>
+          <tr>
+            <th>Tank capacity after ullage (litres)</th>
+            <td>{{ fuelTypeData[0].tankCapAfterUllage | number }}</td>
+            <td>{{ fuelTypeData[1].tankCapAfterUllage | number }}</td>
+            <td>{{ fuelTypeData[2].tankCapAfterUllage | number }}</td>
+            <td>{{ fuelTypeData[3].tankCapAfterUllage | number }}</td>
+          </tr>
+          <tr>
+            <th>Tank balance (litres)</th>
+            <td>{{ fuelTypeData[0].tankBalance | number }}</td>
+            <td>{{ fuelTypeData[1].tankBalance | number }}</td>
+            <td>{{ fuelTypeData[2].tankBalance | number }}</td>
+            <td>{{ fuelTypeData[3].tankBalance | number }}</td>
+          </tr>
+          <tr>
+            <th>Estimated one-day sales (litres)</th>
+            <td>{{ fuelTypeData[0].estSales | number }}</td>
+            <td>{{ fuelTypeData[1].estSales | number }}</td>
+            <td>{{ fuelTypeData[2].estSales | number }}</td>
+            <td>{{ fuelTypeData[3].estSales | number }}</td>
+          </tr>
+          <tr>
+            <th>Expected tank balance after<br />delivery and sales (litres)</th>
+            <td>{{ fuelTypeData[0].expectedBalance | number }}</td>
+            <td>{{ fuelTypeData[1].expectedBalance | number }}</td>
+            <td>{{ fuelTypeData[2].expectedBalance | number }}</td>
+            <td>{{ fuelTypeData[3].expectedBalance | number }}</td>
+          </tr>
+          <tr>
+            <th>Tank safety (%)</th>
+            <td ng-class="tankSafetyClass[0]">{{ fuelTypeData[0].tankSafety | number: 3 }}</td>
+            <td ng-class="tankSafetyClass[1]">{{ fuelTypeData[1].tankSafety | number: 3 }}</td>
+            <td ng-class="tankSafetyClass[2]">{{ fuelTypeData[2].tankSafety | number: 3 }}</td>
+            <td ng-class="tankSafetyClass[3]">{{ fuelTypeData[3].tankSafety | number: 3 }}</td>
+          </tr>
+	</table>
+      </div>
       <!-- End of data summary table -->
 
     </div>
