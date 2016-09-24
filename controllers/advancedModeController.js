@@ -123,6 +123,9 @@ app.controller("advancedModeController", function($scope, $http) {
   $scope.addButtonDisable = [false, false, false, false];
   $scope.removeButtonDisable = [false, false, false, false];
   $scope.tankSafetyClass = ["default", "default", "default", "default"]
+  $scope.unsafeTanks = [];
+  $scope.unsafeTankStr = "none";
+  $scope.isTankUnsafe = false;
 
   $scope.$watch('fuelTypeData', function ()
   {
@@ -158,6 +161,46 @@ app.controller("advancedModeController", function($scope, $http) {
         $scope.tankSafetyClass[i] = "safe";
       }
     }
+
+    $scope.unsafeTanks.length = 0;
+    for (var i = 0; i < $scope.tankSafetyClass.length; i++)
+    {
+      if ($scope.tankSafetyClass[i] == "unsafe" && $scope.unsafeTanks.indexOf(i+1) == -1)
+      {
+	$scope.unsafeTanks.push(i+1);
+      }
+    }
+    bubbleSort($scope.unsafeTanks);
+    if ($scope.unsafeTanks.length == 0)
+    {
+      $scope.isTankUnsafe = false;
+      $scope.unsafeTankStr = "none";
+    }
+    else
+    {
+      $scope.isTankUnsafe = true;
+      if ($scope.unsafeTanks.length == 1)
+      {
+	$scope.unsafeTankStr = "" + $scope.unsafeTanks[0];
+      }
+      else
+      {
+	$scope.unsafeTankStr = "";
+	for (var i = 0; i < $scope.unsafeTanks.length; i++)
+	{
+	  if (i == $scope.unsafeTanks.length - 1)
+	    $scope.unsafeTankStr = $scope.unsafeTankStr + "and " + $scope.unsafeTanks[i];
+	  else
+	  {
+	    if (i == $scope.unsafeTanks.length - 2)
+	      $scope.unsafeTankStr = $scope.unsafeTankStr + $scope.unsafeTanks[i] + " ";
+	    else
+	      $scope.unsafeTankStr = $scope.unsafeTankStr + $scope.unsafeTanks[i] + ", ";
+	  }
+	}
+      }
+    }
+    
   }, true);
     
   $scope.$watch('fuelDays', function ()
@@ -217,6 +260,22 @@ app.controller("advancedModeController", function($scope, $http) {
       $scope.fuelTypeData[i].tankBalance = 0;
       $scope.fuelTypeData[i].estSales = 0;
       $scope.resetDay(i);
+    }
+  }
+
+  function bubbleSort(a)
+  {
+    for (var i = a.length - 1; i > 0; i--)
+    {
+      for (var j = 0; j < i; j++)
+      {
+	if (a[j] > a[j+1])
+	{
+	  var temp = a[j+1];
+	  a[j+1] = a[j];
+	  a[j] = temp;
+	}
+      }
     }
   }
 
