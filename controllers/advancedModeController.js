@@ -206,4 +206,18 @@ app.controller("advancedModeController", function($scope, $http) {
     $scope.addButtonDisable[index] = false;
   }
 
+  $scope.resetAllValues = function ()
+  {
+    $scope.bankBalance = 0;
+    for (var i = 0; i < $scope.fuelTypeData.length; i++)
+    {
+      $scope.fuelTypeData[i].commission = 0;
+      $scope.fuelTypeData[i].tankCapacity = 27000;
+      $scope.fuelTypeData[i].tankUllage = 10;
+      $scope.fuelTypeData[i].tankBalance = 0;
+      $scope.fuelTypeData[i].estSales = 0;
+      $scope.resetDay(i);
+    }
+  }
+
 });

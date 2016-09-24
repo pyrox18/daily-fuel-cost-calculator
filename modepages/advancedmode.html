@@ -8,7 +8,7 @@
   <div class="col-md-4">
     <div class="panel-group">
       
-      <!-- Prerequisites panel -->
+      <!-- Prerequisites panel (old)
       <div class="panel panel-default">
         
         <div class="panel-heading">
@@ -25,7 +25,14 @@
         </div>
         
       </div>
-      <!-- End of prerequisites panel -->
+      End of prerequisites panel -->
+
+      <button type="button" class="btn btn-danger btn-block" ng-click="resetAllValues()">Reset all values</button>
+      <br />
+
+      <p>Bank account balance (RM)</p>
+      <input type="number" class="form-control" ng-model="bankBalance">
+      <br />
 
       <!-- Fuel type 1 -->
       <div class="panel panel-default">
