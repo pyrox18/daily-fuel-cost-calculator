@@ -34,35 +34,35 @@ app.controller("advancedModeController", function($scope, $http) {
 
   $scope.fuelTypeData = [
     {
-      price: 1.70,
-      commission: 0,
-      cost: 0,
-      sumOfFuelAmount: 0,
-      sumOfFuelCost: 0,
-      tankCapacity: 27000,
-      tankUllage: 10,
-      tankCapAfterUllage: 0,
-      tankBalance: 0,
-      tankSafety: 100,
-      estSales: 0,
-      expectedBalance: 0
-    },
-    {
-      price: 2.05,
-      commission: 0,
-      cost: 0,
-      sumOfFuelAmount: 0,
-      sumOfFuelCost: 0,
-      tankCapacity: 27000,
-      tankUllage: 10,
-      tankCapAfterUllage: 0,
-      tankBalance: 0,
-      tankSafety: 100,
-      estSales: 0,
-      expectedBalance: 0
-    },
-    {
       price: 1.80,
+      commission: 0,
+      cost: 0,
+      sumOfFuelAmount: 0,
+      sumOfFuelCost: 0,
+      tankCapacity: 27000,
+      tankUllage: 10,
+      tankCapAfterUllage: 0,
+      tankBalance: 0,
+      tankSafety: 100,
+      estSales: 0,
+      expectedBalance: 0
+    },
+    {
+      price: 2.15,
+      commission: 0,
+      cost: 0,
+      sumOfFuelAmount: 0,
+      sumOfFuelCost: 0,
+      tankCapacity: 27000,
+      tankUllage: 10,
+      tankCapAfterUllage: 0,
+      tankBalance: 0,
+      tankSafety: 100,
+      estSales: 0,
+      expectedBalance: 0
+    },
+    {
+      price: 1.75,
       commission: 0,
       cost: 0,
       sumOfFuelAmount: 0,
