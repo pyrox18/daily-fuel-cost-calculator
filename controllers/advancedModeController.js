@@ -76,7 +76,7 @@ app.controller("advancedModeController", function($scope, $http) {
       expectedBalance: 0
     },
     {
-      price: 1.80,
+      price: 1.85,
       commission: 0,
       cost: 0,
       sumOfFuelAmount: 0,
