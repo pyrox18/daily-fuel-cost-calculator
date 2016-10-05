@@ -166,19 +166,86 @@ describe('advancedModeController', function() {
     });
   });
 
+  describe('Resetting values', function() {
+    beforeEach(function() {
+      for (var i = 0; i < 4; i++)
+      {
+        scope.addDay(i);
+        scope.fuelTypeData[i].price = 1.80;
+        scope.fuelTypeData[i].commission = 0.1114;
+        scope.fuelTypeData[i].tankCapacity = 54000;
+        scope.fuelTypeData[i].tankUllage = 12;
+        scope.fuelTypeData[i].tankBalance = 15000;
+        scope.fuelTypeData[i].estSales = 5000;
+        scope.fuelDays[i][0].amount = 10920;
+        scope.fuelDays[i][1].amount = 5460;
+      }
+      scope.$digest();
+    });
+
+    it('should reset fuel type values individually after manipulation', function() {
+      for (var i = 0; i < 4; i++)
+      {
+        scope.resetFuelTypeValues(i);
+        scope.$digest();
+
+        expect(scope.fuelTypeData[i].commission).toEqual(0);
+        expect(scope.fuelTypeData[i].tankCapacity).toEqual(27000);
+        expect(scope.fuelTypeData[i].tankUllage).toEqual(10);
+        expect(scope.fuelTypeData[i].tankBalance).toEqual(0);
+        expect(scope.fuelTypeData[i].estSales).toEqual(0);
+        expect(scope.fuelDays[i].length).toEqual(1);
+      }
+    });
+
+    it('should reset all fuel type values at once after manipulation', function() {
+      scope.resetAllValues();
+      scope.$digest();
+
+      for (var i = 0; i < 4; i++)
+      {
+        expect(scope.fuelTypeData[i].commission).toEqual(0);
+        expect(scope.fuelTypeData[i].tankCapacity).toEqual(27000);
+        expect(scope.fuelTypeData[i].tankUllage).toEqual(10);
+        expect(scope.fuelTypeData[i].tankBalance).toEqual(0);
+        expect(scope.fuelTypeData[i].estSales).toEqual(0);
+        expect(scope.fuelDays[i].length).toEqual(1);
+      }
+    });
+  });
+
   describe('Full functionality', function() {
     beforeEach(function() {
       scope.bankBalance = 500000;
       scope.fuelTypeData[0].price = 1.80;
       scope.fuelTypeData[1].price = 2.15;
       scope.fuelTypeData[2].price = 1.75;
+      scope.fuelTypeData[3].price = 1.85;
       scope.fuelTypeData[0].commission = 0.1114;
       scope.fuelTypeData[1].commission = 0.1114;
       scope.fuelTypeData[2].commission = 0.0632;
+      scope.fuelTypeData[3].commission = 0.0632;
+      scope.fuelTypeData[0].tankCapacity = 54000;
+      scope.fuelTypeData[1].tankCapacity = 27000;
+      scope.fuelTypeData[2].tankCapacity = 27000;
+      scope.fuelTypeData[3].tankCapacity = 27000;
+      scope.fuelTypeData[0].tankUllage = 10;
+      scope.fuelTypeData[1].tankUllage = 10;
+      scope.fuelTypeData[2].tankUllage = 20;
+      scope.fuelTypeData[3].tankUllage = 10;
+      scope.fuelTypeData[0].tankBalance = 18900;
+      scope.fuelTypeData[1].tankBalance = 10000;
+      scope.fuelTypeData[2].tankBalance = 10000;
+      scope.fuelTypeData[3].tankBalance = 0;
+      scope.fuelTypeData[0].estSales = 5000;
+      scope.fuelTypeData[1].estSales = 1000;
+      scope.fuelTypeData[2].estSales = 500;
+      scope.fuelTypeData[3].estSales = 0;
+      scope.$digest();
     });
 
-    it('should return good message', function() {
-      for (var i = 0; i <= 2; i++)
+    it('should return sufficient balance with 1 tank over capacity', function() {
+      for (var i = 0; i <= 3; i++)
         scope.addDay(i);
 
       scope.fuelDays[0][0].amount = 10920;
@@ -187,17 +254,22 @@ describe('advancedModeController', function() {
       scope.fuelDays[1][1].amount = 10920;
       scope.fuelDays[2][0].amount = 5460;
       scope.fuelDays[2][1].amount = 5460;
+      scope.fuelDays[3][0].amount = 5460;
+      scope.fuelDays[3][1].amount = 5460;
 
       scope.$digest();
       expect(scope.fuelTypeData[0].sumOfFuelCost).toBeCloseTo(27659.27, 2);
       expect(scope.fuelTypeData[1].sumOfFuelCost).toBeCloseTo(55653.78, 2);
       expect(scope.fuelTypeData[2].sumOfFuelCost).toBeCloseTo(18419.86, 2);
-      expect(scope.totalFuelReceivingCost).toBeCloseTo(101732.90, 2);
+      expect(scope.fuelTypeData[3].sumOfFuelCost).toBeCloseTo(19511.86, 2);
+      expect(scope.totalFuelReceivingCost).toBeCloseTo(121244.76, 2);
+      expect(scope.tankSafetyClass).toEqual(["safe", "unsafe", "warning", "safe"]);
+      expect(scope.unsafeTanks).toEqual([2]);
       expect(scope.enoughMoneyMessageClass).toBe("safe");
     });
 
-    it('should return bad message', function() {
-      for (var i = 0; i <= 2; i++)
+    it('should return insufficient balance', function() {
+      for (var i = 0; i <= 3; i++)
         scope.addDay(i);
 
       scope.fuelDays[0][0].amount = 10920;
