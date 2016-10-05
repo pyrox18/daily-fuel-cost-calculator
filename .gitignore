@@ -1,11 +1,8 @@
 
 *.js~
-
 .DS_Store
-<<<<<<< Updated upstream
-
 *.html~
-=======
->>>>>>> Stashed changes
-
 *.css~
+*.yml~
+*.json~
+node_modules/
