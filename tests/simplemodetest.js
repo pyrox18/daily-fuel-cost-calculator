@@ -14,7 +14,8 @@ describe('simpleModeController', function() {
   }));
 
   describe('$scope.fuelCost', function() {
-    it('should be 1.6886 given price = 1.80, commission = 0.1114', function() {
+    it('should return the correct fuel cost after commission', function() {
+      scope.fuelPrice = 1.80;
       scope.fuelCommision = 0.1114;
       scope.$digest();
       expect(scope.fuelCost).toEqual(1.6886);
@@ -22,7 +23,7 @@ describe('simpleModeController', function() {
   });
 
   describe('$scope.fuelReceivingCost', function() {
-    it('should be close to 18439.51 given cost = 1.6886, amount = 10920', function() {
+    it('should return approx. total fuel cost', function() {
       scope.fuelCost = 1.6886;
       scope.fuelReceivingAmount = 10920;
       scope.$digest();
@@ -34,7 +35,7 @@ describe('simpleModeController', function() {
     beforeEach(function() {
       scope.bankBalance = 100000;
     });
-    
+
     it('should return neutral message when there are no deliveries', function() {
       scope.fuelReceivingCost = 0;
       scope.$digest();
@@ -60,7 +61,7 @@ describe('simpleModeController', function() {
       scope.fuelPrice = 1.80;
       scope.fuelCommission = 0.1114;
     });
-    
+
     it('should return good message', function() {
       scope.fuelReceivingAmount = 10920;
       scope.$digest();
