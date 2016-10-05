@@ -17,13 +17,15 @@ describe('advancedModeController', function() {
     beforeEach(function () {
       scope.fuelTypeData[0].price = 1.80;
       scope.fuelTypeData[0].commission = 0.1114;
+      scope.$digest();
     });
 
+/*
     it('should return cost per litre = 1.6886', function() {
       scope.$digest();
       expect(scope.fuelTypeData[0].cost).toEqual(1.6886);
     });
-    
+
     it('should return cost ~= 18439.51 given amount = 10920', function() {
       scope.fuelDays[0][0].amount = 10920;
       scope.$digest();
@@ -66,6 +68,28 @@ describe('advancedModeController', function() {
       scope.$digest();
       scope.fuelDays[0][1].amount = 5460;
       scope.$digest();
+      scope.resetDay(0);
+      scope.$digest();
+      expect(scope.fuelTypeData[0].sumOfFuelCost).toBe(0);
+    });
+    */
+
+    it('should process possible values and return to 0 cost at end', function() {
+      expect(scope.fuelTypeData[0].cost).toEqual(1.6886);
+      scope.fuelDays[0][0].amount = 10920;
+      scope.addDay(0);
+      scope.$digest();
+      expect(scope.fuelTypeData[0].sumOfFuelCost).toBeCloseTo(18439.51, 2);
+      scope.fuelDays[0][1].amount = 5460;
+      scope.$digest();
+      expect(scope.fuelTypeData[0].sumOfFuelCost).toBeCloseTo(27659.27, 2);
+      scope.removeDay(0);
+      scope.$digest();
+      expect(scope.fuelTypeData[0].sumOfFuelCost).toBeCloseTo(18439.51, 2);
+      scope.addDay(0);
+      scope.fuelDays[0][1].amount = 5460;
+      scope.$digest();
+      expect(scope.fuelTypeData[0].sumOfFuelCost).toBeCloseTo(27659.27, 2);
       scope.resetDay(0);
       scope.$digest();
       expect(scope.fuelTypeData[0].sumOfFuelCost).toBe(0);
@@ -122,7 +146,7 @@ describe('advancedModeController', function() {
     beforeEach(function() {
       scope.bankBalance = 100000;
     });
-    
+
     it('should return neutral message when there are no deliveries', function() {
       scope.totalFuelReceivingCost = 0;
       scope.$digest();
