@@ -3,6 +3,10 @@ app.controller("advancedModeController", function($scope, $http) {
 
   $http.get("data/fuelPriceData.js").then(function(response) {
     $scope.fuelData = response.data;
+    $scope.fuelTypeData[0].price = $scope.fuelData["RON95"];
+    $scope.fuelTypeData[1].price = $scope.fuelData["RON97"];
+    $scope.fuelTypeData[2].price = $scope.fuelData["Diesel"];
+    $scope.fuelTypeData[3].price = $scope.fuelData["Euro 5 Diesel"];
   });
 
   $scope.totalFuelReceivingCost = 0;
@@ -19,7 +23,7 @@ app.controller("advancedModeController", function($scope, $http) {
     {
       $scope.enoughMoneyMessage = "No deliveries today?";
       $scope.enoughMoneyMessageClass = "default";
-    } 
+    }
     else if (balance >= cost)
     {
       $scope.enoughMoneyMessage = "Sufficient funds.";
@@ -200,9 +204,9 @@ app.controller("advancedModeController", function($scope, $http) {
 	}
       }
     }
-    
+
   }, true);
-    
+
   $scope.$watch('fuelDays', function ()
   {
     for (var i = 0; i < $scope.fuelDays.length; i++)
