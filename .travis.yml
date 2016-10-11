@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "0.10"
 before_script:
-  - npm install angular-mocks --save-dev
+  - npm install angular-mocks@1.5.8 --save-dev
   - npm install karma --save-dev
   - npm install -g karma-cli
   - npm install karma-jasmine --save-dev
