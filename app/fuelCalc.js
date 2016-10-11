@@ -1,6 +1,6 @@
 // AngularJS app initialisation, routing config and directives
 
-var app = angular.module("fuelCalc", ['ngRoute']);;
+var app = angular.module("fuelCalc", ['ngRoute']);
 
 app.config(function($routeProvider) {
   $routeProvider
