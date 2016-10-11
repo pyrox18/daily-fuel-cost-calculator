@@ -3,27 +3,27 @@
 
 <!-- Overarching div - currently has no purpose -->
 <div>
-  
+
   <!-- Input panels -->
   <div class="col-md-4">
     <div class="panel-group">
-      
+
       <!-- Prerequisites panel (old)
       <div class="panel panel-default">
-        
+
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-target="#prereqs">Prerequisites</a>
           </h4>
         </div>
-        
+
         <div id="prereqs" class="panel-collapse collapse in">
           <div class="panel-body">
             <p>Bank account balance (RM)</p>
 	    <input type="number" class="form-control" ng-model="bankBalance">
 	  </div>
         </div>
-        
+
       </div>
       End of prerequisites panel -->
 
@@ -31,12 +31,12 @@
       <br />
 
       <p>Bank account balance (RM)</p>
-      <input type="number" class="form-control" ng-model="bankBalance">
+      <input type="number" class="form-control" ng-model="bankBalance" floats-only>
       <br />
 
       <!-- Fuel type 1 -->
       <div class="panel panel-default">
-        
+
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-target="#fueltype1">Fuel Type 1</a>
@@ -49,29 +49,29 @@
             <p>Fuel type <select ng-model="fuelTypeData[0].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[0].price | number: 2}}/litre)</p>
 	    <div class="form-group">
 	      <p>Fuel commission (RM)</p>
-	      <input type="number" class="form-control" ng-model="fuelTypeData[0].commission">
+	      <input type="number" class="form-control" ng-model="fuelTypeData[0].commission" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Fuel cost: RM{{ fuelTypeData[0].cost | number: 6 }}/litre</p>
             </div>
 	    <div class="form-group">
               <p>Tank capacity (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[0].tankCapacity">
+              <input type="number" class="form-control" ng-model="fuelTypeData[0].tankCapacity" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Tank ullage (%)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[0].tankUllage">
+              <input type="number" class="form-control" ng-model="fuelTypeData[0].tankUllage" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Tank balance (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[0].tankBalance">
+              <input type="number" class="form-control" ng-model="fuelTypeData[0].tankBalance" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Estimated one-day sales (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[0].estSales">
+              <input type="number" class="form-control" ng-model="fuelTypeData[0].estSales" floats-only>
 	    </div>
 	    <p>Tank safety: <span ng-class="tankSafetyClass[0]">{{ fuelTypeData[0].tankSafety | number: 3 }}%</span></p>
-            
+
 	    <table class="table">
               <tr>
                 <th>Day</th>
@@ -80,7 +80,7 @@
               </tr>
               <tr ng-repeat="day in fuelDays[0]">
                 <td>{{$index + 1}}</td>
-                <td><input type="number" style="width:60%;" ng-model="day.amount"></td>
+                <td><input type="number" style="width:60%;" ng-model="day.amount" floats-only></td>
                 <td>{{ day.cost | number: 2 }}</td>
               </tr>
               <tr>
@@ -109,7 +109,7 @@
 	  </div>
         </div>
         <!-- End of FT1 inputs -->
-        
+
       </div>
       <!-- End of fuel type 1 -->
 
@@ -128,31 +128,31 @@
             <p>Fuel type <select ng-model="fuelTypeData[1].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[1].price | number: 2}}/litre)</p>
 	    <div class="form-group">
    	      <p>Fuel commission (RM)</p>
-	      <input type="number" class="form-control" ng-model="fuelTypeData[1].commission">
+	      <input type="number" class="form-control" ng-model="fuelTypeData[1].commission" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Fuel cost: RM{{ fuelTypeData[1].cost | number: 6 }}/litre</p>
 	    </div>
 	    <div class="form-group">
               <p>Tank capacity (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[1].tankCapacity">
+              <input type="number" class="form-control" ng-model="fuelTypeData[1].tankCapacity" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Tank ullage (%)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[1].tankUllage">
+              <input type="number" class="form-control" ng-model="fuelTypeData[1].tankUllage" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Tank balance (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[1].tankBalance">
+              <input type="number" class="form-control" ng-model="fuelTypeData[1].tankBalance" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Estimated one-day sales (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[1].estSales">
+              <input type="number" class="form-control" ng-model="fuelTypeData[1].estSales" floats-only>
 	    </div>
 	    <div class="form-group">
 	      <p>Tank safety: <span ng-class="tankSafetyClass[1]">{{ fuelTypeData[1].tankSafety | number: 3 }}%</span></p>
 	    </div>
-            
+
             <table class="table">
               <tr>
                 <th>Day</th>
@@ -161,7 +161,7 @@
               </tr>
               <tr ng-repeat="day in fuelDays[1]">
                 <td>{{$index + 1}}</td>
-                <td><input type="number" style="width:60%;" ng-model="day.amount"></td>
+                <td><input type="number" style="width:60%;" ng-model="day.amount" floats-only></td>
                 <td>{{ day.cost | number: 2 }}</td>
               </tr>
               <tr>
@@ -190,13 +190,13 @@
 	  </div>
         </div>
         <!-- End of FT2 inputs-->
-        
+
       </div>
       <!-- End of fuel type 2 -->
 
       <!-- Fuel type 3 -->
       <div class="panel panel-default">
-        
+
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-target="#fueltype3">Fuel Type 3</a>
@@ -209,26 +209,26 @@
             <p>Fuel type <select ng-model="fuelTypeData[2].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[2].price | number: 2}}/litre)</p>
 	    <div class="form-group">
 	      <p>Fuel commission (RM)</p>
-	      <input type="number" class="form-control" ng-model="fuelTypeData[2].commission">
+	      <input type="number" class="form-control" ng-model="fuelTypeData[2].commission" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Fuel cost: RM{{ fuelTypeData[2].cost | number: 6 }}/litre</p>
             </div>
 	    <div class="form-group">
               <p>Tank capacity (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[2].tankCapacity">
+              <input type="number" class="form-control" ng-model="fuelTypeData[2].tankCapacity" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Tank ullage (%)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[2].tankUllage">
+              <input type="number" class="form-control" ng-model="fuelTypeData[2].tankUllage" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Tank balance (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[2].tankBalance">
+              <input type="number" class="form-control" ng-model="fuelTypeData[2].tankBalance" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Estimated one-day sales (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[2].estSales">
+              <input type="number" class="form-control" ng-model="fuelTypeData[2].estSales" floats-only>
 	    </div>
 	    <div class="form-group">
 	      <p>Tank safety: <span ng-class="tankSafetyClass[2]">{{ fuelTypeData[2].tankSafety | number: 3 }}%</span></p>
@@ -242,7 +242,7 @@
               </tr>
               <tr ng-repeat="day in fuelDays[2]">
                 <td>{{$index + 1}}</td>
-                <td><input type="number" style="width:60%;" ng-model="day.amount"></td>
+                <td><input type="number" style="width:60%;" ng-model="day.amount" floats-only></td>
                 <td>{{ day.cost | number: 2 }}</td>
               </tr>
               <tr>
@@ -271,13 +271,13 @@
 	  </div>
         </div>
         <!-- End of FT3 inputs -->
-        
+
       </div>
       <!-- End of fuel type 3 -->
 
       <!-- Fuel type 4 -->
       <div class="panel panel-default">
-        
+
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-target="#fueltype4">Fuel Type 4</a>
@@ -290,26 +290,26 @@
             <p>Fuel type <select ng-model="fuelTypeData[3].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[3].price | number: 2}}/litre)</p>
 	    <div class="form-group">
 	      <p>Fuel commission (RM)</p>
-	      <input type="number" class="form-control" ng-model="fuelTypeData[3].commission">
+	      <input type="number" class="form-control" ng-model="fuelTypeData[3].commission" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Fuel cost: RM{{ fuelTypeData[3].cost | number: 6 }}/litre</p>
 	    </div>
 	    <div class="form-group">
               <p>Tank capacity (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[3].tankCapacity">
+              <input type="number" class="form-control" ng-model="fuelTypeData[3].tankCapacity" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Tank ullage (%)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[3].tankUllage">
+              <input type="number" class="form-control" ng-model="fuelTypeData[3].tankUllage" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Tank balance (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[3].tankBalance">
+              <input type="number" class="form-control" ng-model="fuelTypeData[3].tankBalance" floats-only>
 	    </div>
 	    <div class="form-group">
               <p>Estimated one-day sales (litres)</p>
-              <input type="number" class="form-control" ng-model="fuelTypeData[3].estSales">
+              <input type="number" class="form-control" ng-model="fuelTypeData[3].estSales" floats-only>
 	    </div>
 	    <div class="form-group">
 	      <p>Tank safety: <span ng-class="tankSafetyClass[3]">{{ fuelTypeData[3].tankSafety | number: 3 }}%</span></p>
@@ -323,7 +323,7 @@
               </tr>
               <tr ng-repeat="day in fuelDays[3]">
                 <td>{{$index + 1}}</td>
-                <td><input type="number" style="width:60%;" ng-model="day.amount"></td>
+                <td><input type="number" style="width:60%;" ng-model="day.amount" floats-only></td>
                 <td>{{ day.cost | number: 2 }}</td>
               </tr>
               <tr>
@@ -352,10 +352,10 @@
 	  </div>
         </div>
         <!-- End of FT4 inputs -->
-        
+
       </div>
       <!-- End of fuel type 4 -->
-      
+
     </div>
   </div>
   <!-- End of input panels -->
@@ -450,6 +450,5 @@
     </div>
   </div>
   <!-- End of data summary panel -->
-  
-</div>
 
+</div>
