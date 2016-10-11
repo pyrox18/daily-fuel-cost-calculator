@@ -8,25 +8,6 @@
   <div class="col-md-4">
     <div class="panel-group">
 
-      <!-- Prerequisites panel (old)
-      <div class="panel panel-default">
-
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-target="#prereqs">Prerequisites</a>
-          </h4>
-        </div>
-
-        <div id="prereqs" class="panel-collapse collapse in">
-          <div class="panel-body">
-            <p>Bank account balance (RM)</p>
-	    <input type="number" class="form-control" ng-model="bankBalance">
-	  </div>
-        </div>
-
-      </div>
-      End of prerequisites panel -->
-
       <button type="button" class="btn btn-danger btn-block" ng-click="resetAllValues()">Reset all values</button>
       <br />
 
@@ -47,32 +28,32 @@
         <div id="fueltype1" class="panel-collapse collapse">
           <div class="panel-body">
             <p>Fuel type <select ng-model="fuelTypeData[0].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[0].price | number: 2}}/litre)</p>
-	    <div class="form-group">
-	      <p>Fuel commission (RM)</p>
-	      <input type="number" class="form-control" ng-model="fuelTypeData[0].commission" floats-only>
-	    </div>
-	    <div class="form-group">
+            <div class="form-group">
+              <p>Fuel commission (RM)</p>
+              <input type="number" class="form-control" ng-model="fuelTypeData[0].commission" floats-only>
+            </div>
+	          <div class="form-group">
               <p>Fuel cost: RM{{ fuelTypeData[0].cost | number: 6 }}/litre</p>
             </div>
-	    <div class="form-group">
+	          <div class="form-group">
               <p>Tank capacity (litres)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[0].tankCapacity" floats-only>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Tank ullage (%)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[0].tankUllage" floats-only>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Tank balance (litres)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[0].tankBalance" floats-only>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Estimated one-day sales (litres)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[0].estSales" floats-only>
-	    </div>
-	    <p>Tank safety: <span ng-class="tankSafetyClass[0]">{{ fuelTypeData[0].tankSafety | number: 3 }}%</span></p>
+	          </div>
+	          <p>Tank safety: <span ng-class="tankSafetyClass[0]">{{ fuelTypeData[0].tankSafety | number: 3 }}%</span></p>
 
-	    <table class="table">
+	          <table class="table">
               <tr>
                 <th>Day</th>
                 <th>Fuel (litres)</th>
@@ -90,23 +71,23 @@
               </tr>
             </table>
             <div class="btn-group btn-group-justified" role="group">
-	      <div class="btn-group" role="group">
-		<button class="btn btn-default" ng-click="addDay(0)" ng-disabled="addButtonDisable[0]"><span class="glyphicon glyphicon-plus"></span> Add</button>
-	      </div>
-	      <div class="btn-group" role="group">
-		<button class="btn btn-default" ng-click="removeDay(0)" ng-disabled="removeButtonDisable[0]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
-	      </div>
-	      <div class="btn-group" role="group">
-		<button class="btn btn-default" ng-click="resetDay(0)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
-	      </div>
-	    </div>
-	    <br />
-	    <div class="btn-group btn-group-justified" role="group">
-	      <div class="btn-group" role="group">
-		<button class="btn btn-warning" ng-click="resetFuelTypeValues(0)">Reset all values in Fuel Type 1</button>
-	      </div>
-	    </div>
-	  </div>
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-default" ng-click="addDay(0)" ng-disabled="addButtonDisable[0]"><span class="glyphicon glyphicon-plus"></span> Add</button>
+	            </div>
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-default" ng-click="removeDay(0)" ng-disabled="removeButtonDisable[0]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+	            </div>
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-default" ng-click="resetDay(0)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
+	            </div>
+	          </div>
+	          <br />
+	          <div class="btn-group btn-group-justified" role="group">
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-warning" ng-click="resetFuelTypeValues(0)">Reset all values in Fuel Type 1</button>
+	            </div>
+	          </div>
+	        </div>
         </div>
         <!-- End of FT1 inputs -->
 
@@ -126,32 +107,32 @@
         <div id="fueltype2" class="panel-collapse collapse">
           <div class="panel-body">
             <p>Fuel type <select ng-model="fuelTypeData[1].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[1].price | number: 2}}/litre)</p>
-	    <div class="form-group">
-   	      <p>Fuel commission (RM)</p>
-	      <input type="number" class="form-control" ng-model="fuelTypeData[1].commission" floats-only>
-	    </div>
-	    <div class="form-group">
+	          <div class="form-group">
+   	          <p>Fuel commission (RM)</p>
+	            <input type="number" class="form-control" ng-model="fuelTypeData[1].commission" floats-only>
+	          </div>
+	          <div class="form-group">
               <p>Fuel cost: RM{{ fuelTypeData[1].cost | number: 6 }}/litre</p>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Tank capacity (litres)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[1].tankCapacity" floats-only>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Tank ullage (%)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[1].tankUllage" floats-only>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Tank balance (litres)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[1].tankBalance" floats-only>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Estimated one-day sales (litres)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[1].estSales" floats-only>
-	    </div>
-	    <div class="form-group">
-	      <p>Tank safety: <span ng-class="tankSafetyClass[1]">{{ fuelTypeData[1].tankSafety | number: 3 }}%</span></p>
-	    </div>
+	          </div>
+	          <div class="form-group">
+	            <p>Tank safety: <span ng-class="tankSafetyClass[1]">{{ fuelTypeData[1].tankSafety | number: 3 }}%</span></p>
+	          </div>
 
             <table class="table">
               <tr>
@@ -171,23 +152,23 @@
               </tr>
             </table>
             <div class="btn-group btn-group-justified" role="group">
-	      <div class="btn-group" role="group">
-		<button class="btn btn-default" ng-click="addDay(1)" ng-disabled="addButtonDisable[1]"><span class="glyphicon glyphicon-plus"></span> Add</button>
-	      </div>
-	      <div class="btn-group" role="group">
-		<button class="btn btn-default" ng-click="removeDay(1)" ng-disabled="removeButtonDisable[1]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
-	      </div>
-	      <div class="btn-group" role="group">
-		<button class="btn btn-default" ng-click="resetDay(1)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
-	      </div>
-	    </div>
-	    <br />
-	    <div class="btn-group btn-group-justified" role="group">
-	      <div class="btn-group" role="group">
-		<button class="btn btn-warning" ng-click="resetFuelTypeValues(1)">Reset all values in Fuel Type 2</button>
-	      </div>
-	    </div>
-	  </div>
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-default" ng-click="addDay(1)" ng-disabled="addButtonDisable[1]"><span class="glyphicon glyphicon-plus"></span> Add</button>
+	            </div>
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-default" ng-click="removeDay(1)" ng-disabled="removeButtonDisable[1]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+	            </div>
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-default" ng-click="resetDay(1)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
+	            </div>
+	          </div>
+	          <br />
+	          <div class="btn-group btn-group-justified" role="group">
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-warning" ng-click="resetFuelTypeValues(1)">Reset all values in Fuel Type 2</button>
+	            </div>
+	          </div>
+	        </div>
         </div>
         <!-- End of FT2 inputs-->
 
@@ -207,34 +188,34 @@
         <div id="fueltype3" class="panel-collapse collapse">
           <div class="panel-body">
             <p>Fuel type <select ng-model="fuelTypeData[2].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[2].price | number: 2}}/litre)</p>
-	    <div class="form-group">
-	      <p>Fuel commission (RM)</p>
-	      <input type="number" class="form-control" ng-model="fuelTypeData[2].commission" floats-only>
-	    </div>
-	    <div class="form-group">
+	          <div class="form-group">
+	            <p>Fuel commission (RM)</p>
+	            <input type="number" class="form-control" ng-model="fuelTypeData[2].commission" floats-only>
+	          </div>
+	          <div class="form-group">
               <p>Fuel cost: RM{{ fuelTypeData[2].cost | number: 6 }}/litre</p>
             </div>
-	    <div class="form-group">
+	          <div class="form-group">
               <p>Tank capacity (litres)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[2].tankCapacity" floats-only>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Tank ullage (%)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[2].tankUllage" floats-only>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Tank balance (litres)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[2].tankBalance" floats-only>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Estimated one-day sales (litres)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[2].estSales" floats-only>
-	    </div>
-	    <div class="form-group">
-	      <p>Tank safety: <span ng-class="tankSafetyClass[2]">{{ fuelTypeData[2].tankSafety | number: 3 }}%</span></p>
-	    </div>
+	          </div>
+	          <div class="form-group">
+	            <p>Tank safety: <span ng-class="tankSafetyClass[2]">{{ fuelTypeData[2].tankSafety | number: 3 }}%</span></p>
+	          </div>
 
-	    <table class="table">
+	          <table class="table">
               <tr>
                 <th>Day</th>
                 <th>Fuel (litres)</th>
@@ -252,23 +233,23 @@
               </tr>
             </table>
             <div class="btn-group btn-group-justified" role="group">
-	      <div class="btn-group" role="group">
-		<button class="btn btn-default" ng-click="addDay(2)" ng-disabled="addButtonDisable[2]"><span class="glyphicon glyphicon-plus"></span> Add</button>
-	      </div>
-	      <div class="btn-group" role="group">
-		<button class="btn btn-default" ng-click="removeDay(2)" ng-disabled="removeButtonDisable[2]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
-	      </div>
-	      <div class="btn-group" role="group">
-		<button class="btn btn-default" ng-click="resetDay(2)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
-	      </div>
-	    </div>
-	    <br />
-	    <div class="btn-group btn-group-justified" role="group">
-	      <div class="btn-group" role="group">
-		<button class="btn btn-warning" ng-click="resetFuelTypeValues(2)">Reset all values in Fuel Type 3</button>
-	      </div>
-	    </div>
-	  </div>
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-default" ng-click="addDay(2)" ng-disabled="addButtonDisable[2]"><span class="glyphicon glyphicon-plus"></span> Add</button>
+	            </div>
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-default" ng-click="removeDay(2)" ng-disabled="removeButtonDisable[2]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+	            </div>
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-default" ng-click="resetDay(2)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
+	            </div>
+	          </div>
+	          <br />
+	          <div class="btn-group btn-group-justified" role="group">
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-warning" ng-click="resetFuelTypeValues(2)">Reset all values in Fuel Type 3</button>
+	            </div>
+	          </div>
+	        </div>
         </div>
         <!-- End of FT3 inputs -->
 
@@ -288,34 +269,34 @@
         <div id="fueltype4" class="panel-collapse collapse">
           <div class="panel-body">
             <p>Fuel type <select ng-model="fuelTypeData[3].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[3].price | number: 2}}/litre)</p>
-	    <div class="form-group">
-	      <p>Fuel commission (RM)</p>
-	      <input type="number" class="form-control" ng-model="fuelTypeData[3].commission" floats-only>
-	    </div>
-	    <div class="form-group">
+	          <div class="form-group">
+	            <p>Fuel commission (RM)</p>
+	            <input type="number" class="form-control" ng-model="fuelTypeData[3].commission" floats-only>
+	          </div>
+	          <div class="form-group">
               <p>Fuel cost: RM{{ fuelTypeData[3].cost | number: 6 }}/litre</p>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Tank capacity (litres)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[3].tankCapacity" floats-only>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Tank ullage (%)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[3].tankUllage" floats-only>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Tank balance (litres)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[3].tankBalance" floats-only>
-	    </div>
-	    <div class="form-group">
+	          </div>
+	          <div class="form-group">
               <p>Estimated one-day sales (litres)</p>
               <input type="number" class="form-control" ng-model="fuelTypeData[3].estSales" floats-only>
-	    </div>
-	    <div class="form-group">
-	      <p>Tank safety: <span ng-class="tankSafetyClass[3]">{{ fuelTypeData[3].tankSafety | number: 3 }}%</span></p>
-	    </div>
+	          </div>
+	          <div class="form-group">
+	            <p>Tank safety: <span ng-class="tankSafetyClass[3]">{{ fuelTypeData[3].tankSafety | number: 3 }}%</span></p>
+	          </div>
 
-	    <table class="table">
+	          <table class="table">
               <tr>
                 <th>Day</th>
                 <th>Fuel (litres)</th>
@@ -333,23 +314,23 @@
               </tr>
             </table>
             <div class="btn-group btn-group-justified" role="group">
-	      <div class="btn-group" role="group">
-		<button class="btn btn-default" ng-click="addDay(3)" ng-disabled="addButtonDisable[3]"><span class="glyphicon glyphicon-plus"></span> Add</button>
-	      </div>
-	      <div class="btn-group" role="group">
-		<button class="btn btn-default" ng-click="removeDay(3)" ng-disabled="removeButtonDisable[3]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
-	      </div>
-	      <div class="btn-group" role="group">
-		<button class="btn btn-default" ng-click="resetDay(3)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
-	      </div>
-	    </div>
-	    <br />
-	    <div class="btn-group btn-group-justified" role="group">
-	      <div class="btn-group" role="group">
-		<button class="btn btn-warning" ng-click="resetFuelTypeValues(3)">Reset all values in Fuel Type 4</button>
-	      </div>
-	    </div>
-	  </div>
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-default" ng-click="addDay(3)" ng-disabled="addButtonDisable[3]"><span class="glyphicon glyphicon-plus"></span> Add</button>
+	            </div>
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-default" ng-click="removeDay(3)" ng-disabled="removeButtonDisable[3]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+	            </div>
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-default" ng-click="resetDay(3)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
+	            </div>
+	          </div>
+	          <br />
+	          <div class="btn-group btn-group-justified" role="group">
+	            <div class="btn-group" role="group">
+		            <button class="btn btn-warning" ng-click="resetFuelTypeValues(3)">Reset all values in Fuel Type 4</button>
+	            </div>
+	          </div>
+	        </div>
         </div>
         <!-- End of FT4 inputs -->
 
@@ -372,7 +353,7 @@
 
       <!-- Data summary table -->
       <div class="table-responsive">
-	<table class="table">
+	      <table class="table">
           <tr>
             <th>Fuel Type</th>
             <th>1</th>
@@ -443,7 +424,7 @@
             <td ng-class="tankSafetyClass[2]">{{ fuelTypeData[2].tankSafety | number: 3 }}</td>
             <td ng-class="tankSafetyClass[3]">{{ fuelTypeData[3].tankSafety | number: 3 }}</td>
           </tr>
-	</table>
+	      </table>
       </div>
       <!-- End of data summary table -->
 

@@ -9,10 +9,6 @@
 <!-- Data summary -->
 <div class="summary">
   <p>Bank account balance: RM{{ bankBalance | number: 2 }}</p>
-  <!-- Old code
-  <p>Fuel price: RM{{ fuelPrice | number: 2 }}/litre</p>
-  <p>Fuel cost: RM{{ fuelCost | number: 2 }}/litre</p>
-  -->
   <p>Total fuel receiving cost: RM{{ totalFuelReceivingCost | number: 2 }}</p>
 </div>
 <br />
@@ -22,21 +18,11 @@
   <form class="form-inline">
     <div class="form-group">
       <p>Current bank account balance (RM):
-	<input type="number" class="form-control" ng-model="bankBalance" floats-only>
+	       <input type="number" class="form-control" ng-model="bankBalance" floats-only>
       </p>
     </div>
   </form>
-  <!-- Old code
-  <p>Fuel type:
-    <select ng-model="fuelPrice" ng-options="type for (type, price) in fuelData"></select>
-  </p>
-  <p>Your fuel commision (RM):
-    <input type="number" ng-model="fuelCommision">
-  </p>
-  <p>Amount of fuel you are receiving (litres):
-    <input type="number" ng-model="fuelReceivingAmount">
-  </p>
-  -->
+
   <hr>
 
   <!-- Input tables section -->
@@ -45,8 +31,8 @@
     <div class="col-md-4">
       <p>Fuel type: <select ng-model="fuelTypeData[0].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[0].price | number: 2}}/litre)</p>
       <div class="form-group">
-	<p>Fuel commission (RM)</p>
-	<input type="number" class="form-control" ng-model="fuelTypeData[0].commission" floats-only>
+	       <p>Fuel commission (RM)</p>
+         <input type="number" class="form-control" ng-model="fuelTypeData[0].commission" floats-only>
       </div>
       <p>Fuel cost: RM{{ fuelTypeData[0].cost | number: 6 }}/litre</p>
       <table class="table">
@@ -67,15 +53,15 @@
         </tr>
       </table>
       <div class="btn-group btn-group-justified" role="group">
-	<div class="btn-group" role="group">
-	  <button class="btn btn-default" ng-click="addDay(0)" ng-disabled="addButtonDisable[0]"><span class="glyphicon glyphicon-plus"></span> Add</button>
-	</div>
-	<div class="btn-group" role="group">
-	  <button class="btn btn-default" ng-click="removeDay(0)" ng-disabled="removeButtonDisable[0]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
-	</div>
-	<div class="btn-group" role="group">
-	  <button class="btn btn-default" ng-click="resetDay(0)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
-	</div>
+        <div class="btn-group" role="group">
+	          <button class="btn btn-default" ng-click="addDay(0)" ng-disabled="addButtonDisable[0]"><span class="glyphicon glyphicon-plus"></span> Add</button>
+        </div>
+	      <div class="btn-group" role="group">
+	        <button class="btn btn-default" ng-click="removeDay(0)" ng-disabled="removeButtonDisable[0]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+        </div>
+	      <div class="btn-group" role="group">
+	        <button class="btn btn-default" ng-click="resetDay(0)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
+	      </div>
       </div>
       <hr>
     </div>
@@ -85,8 +71,8 @@
     <div class="col-md-4">
       <p>Fuel type: <select ng-model="fuelTypeData[1].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[1].price | number: 2}}/litre)</p>
       <div class="form-group">
-	<p>Fuel commission (RM)</p>
-	<input type="number" class="form-control" ng-model="fuelTypeData[1].commission" floats-only>
+	       <p>Fuel commission (RM)</p>
+         <input type="number" class="form-control" ng-model="fuelTypeData[1].commission" floats-only>
       </div>
       <p>Fuel cost: RM{{ fuelTypeData[1].cost | number: 6 }}/litre</p>
       <table class="table">
@@ -107,15 +93,15 @@
         </tr>
       </table>
       <div class="btn-group btn-group-justified" role="group">
-	<div class="btn-group" role="group">
-	  <button class="btn btn-default" ng-click="addDay(1)" ng-disabled="addButtonDisable[1]"><span class="glyphicon glyphicon-plus"></span> Add</button>
-	</div>
-	<div class="btn-group" role="group">
-	  <button class="btn btn-default" ng-click="removeDay(1)" ng-disabled="removeButtonDisable[1]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
-	</div>
-	<div class="btn-group" role="group">
-	  <button class="btn btn-default" ng-click="resetDay(1)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
-	</div>
+      	<div class="btn-group" role="group">
+	        <button class="btn btn-default" ng-click="addDay(1)" ng-disabled="addButtonDisable[1]"><span class="glyphicon glyphicon-plus"></span> Add</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button class="btn btn-default" ng-click="removeDay(1)" ng-disabled="removeButtonDisable[1]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button class="btn btn-default" ng-click="resetDay(1)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
+        </div>
       </div>
       <hr>
     </div>
@@ -125,8 +111,8 @@
     <div class="col-md-4">
       <p>Fuel type: <select ng-model="fuelTypeData[2].price" ng-options="type for (type, price) in fuelData"></select> (RM{{ fuelTypeData[2].price | number: 2}}/litre)</p>
       <div class="form-group">
-	<p>Fuel commission (RM)</p>
-	<input type="number" class="form-control" ng-model="fuelTypeData[2].commission" floats-only>
+        <p>Fuel commission (RM)</p>
+        <input type="number" class="form-control" ng-model="fuelTypeData[2].commission" floats-only>
       </div>
       <p>Fuel cost: RM{{ fuelTypeData[2].cost | number: 6 }}/litre</p>
       <table class="table">
@@ -147,15 +133,15 @@
         </tr>
       </table>
       <div class="btn-group btn-group-justified" role="group">
-	<div class="btn-group" role="group">
-	  <button class="btn btn-default" ng-click="addDay(2)" ng-disabled="addButtonDisable[2]"><span class="glyphicon glyphicon-plus"></span> Add</button>
-	</div>
-	<div class="btn-group" role="group">
-	  <button class="btn btn-default" ng-click="removeDay(2)" ng-disabled="removeButtonDisable[2]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
-	</div>
-	<div class="btn-group" role="group">
-	  <button class="btn btn-default" ng-click="resetDay(2)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
-	</div>
+        <div class="btn-group" role="group">
+          <button class="btn btn-default" ng-click="addDay(2)" ng-disabled="addButtonDisable[2]"><span class="glyphicon glyphicon-plus"></span> Add</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button class="btn btn-default" ng-click="removeDay(2)" ng-disabled="removeButtonDisable[2]"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button class="btn btn-default" ng-click="resetDay(2)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
+        </div>
       </div>
       <hr>
     </div>
