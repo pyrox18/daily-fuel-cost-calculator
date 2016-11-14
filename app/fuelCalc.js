@@ -49,7 +49,7 @@ app.directive('floatsOnly', function() {
           modelCtrl.$render();
         }
 
-        return transformedInput;
+        return Number(transformedInput);
       });
     }
   };
