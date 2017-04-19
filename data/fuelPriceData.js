@@ -1,6 +1,6 @@
 {
-  "RON95": 2.24,
-  "RON97": 2.52,
-  "Diesel": 2.16,
-  "Euro 5 Diesel": 2.26
+  "RON95": 2.27,
+  "RON97": 2.54,
+  "Diesel": 2.21,
+  "Euro 5 Diesel": 2.31
 }
