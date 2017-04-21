@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { FuelPriceService } from '../../services/fuel-price.service';
+import { SimpleFuel } from '../../models/simple-fuel';
+
 @Component({
   selector: 'app-simple',
   templateUrl: './simple.component.html',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SimpleComponent implements OnInit {
 
-  constructor() { }
+  inputData: SimpleFuel;
+  bankBalance: number;
+
+  constructor(
+    private fuelPriceService: FuelPriceService
+  ) { }
 
   ngOnInit() {
+    this.bankBalance = 0.00;
+    this.inputData = new SimpleFuel();
+    this.inputData.fuelPrice = this.fuelPriceService.fuelPrices[0].price;
   }
 
 }

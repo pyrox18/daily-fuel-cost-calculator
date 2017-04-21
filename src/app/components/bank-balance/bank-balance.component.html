@@ -1,0 +1,12 @@
+<div *ngIf="totalFuelCost == 0">
+  <h4>Bank balance after fuel delivery: RM{{finalBalance | number:'1.2-2'}}</h4>
+  <h3>No deliveries today?</h3>
+</div>
+<div *ngIf="totalFuelCost && finalBalance >= 0">
+  <h4>Bank balance after fuel delivery: <span class="text-success">RM{{finalBalance | number:'1.2-2'}}</span></h4>
+  <h3 class="text-success">Sufficient funds.</h3>
+</div>
+<div *ngIf="totalFuelCost && finalBalance < 0">
+  <h4>Bank balance after fuel delivery: <span class="text-danger">RM{{finalBalance | number:'1.2-2'}}</span></h4>
+  <h3 class="text-danger">Insufficient funds!</h3>
+</div>

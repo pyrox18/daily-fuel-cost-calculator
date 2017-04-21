@@ -13,6 +13,7 @@ import { AdvancedComponent } from './components/advanced/advanced.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { BankBalanceComponent } from './components/bank-balance/bank-balance.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AdvancedComponent,
     PageNotFoundComponent,
     AboutComponent,
-    NavbarComponent
+    NavbarComponent,
+    BankBalanceComponent
   ],
   imports: [
     BrowserModule,
