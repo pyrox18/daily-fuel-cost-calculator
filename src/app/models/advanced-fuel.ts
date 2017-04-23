@@ -24,7 +24,7 @@ export class AdvancedFuel extends StandardFuel {
   }
 
   tankSafety() {
-    return (this.tankBalAfterDeliveryAndSales() / this.tankCapAfterUllage()) / 100;
+    return (this.tankBalAfterDeliveryAndSales() / this.tankCapAfterUllage()) * 100;
   }
 
   resetValues(tankCapacity?: number) {

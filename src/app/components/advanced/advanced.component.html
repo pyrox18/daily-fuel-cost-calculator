@@ -1,3 +1,130 @@
-<p>
-  advanced works!
-</p>
+<div class="col-md-4">
+  <button type="button" class="btn btn-danger btn-block" (click)="resetAllValues()">Reset all values</button>
+  <br>
+
+  <p>Bank account balance (RM)</p>
+  <input type="number" class="form-control" [(ngModel)]="bankBalance">
+  <br>
+
+  <accordion>
+    <accordion-group *ngFor="let data of inputData; let n = index" heading="Fuel Type {{n+1}}">
+      <p>Fuel type 
+        <select [(ngModel)]="data.fuelPrice">
+          <option *ngFor="let fuel of fuelPriceService.fuelPrices" [value]="fuel.price">{{fuel.name}}</option>
+        </select> 
+        (RM{{data.fuelPrice | number:'1.2-2'}}/litre)
+      </p>
+      <div class="form-group">
+        <p>Fuel commission (RM)</p>
+        <input type="number" class="form-control" [(ngModel)]="data.fuelCommission">
+      </div>
+      <div class="form-group">
+        <p>Fuel cost: RM{{data.fuelCost() | number:'1.2-6'}}/litre</p>
+      </div>
+      <div class="form-group">
+        <p>Tank capacity (litres)</p>
+        <input type="number" class="form-control" [(ngModel)]="data.tankCapacity">
+      </div>
+      <div class="form-group">
+        <p>Tank ullage (%)</p>
+        <input type="number" class="form-control" [(ngModel)]="data.tankUllage">
+      </div>
+      <div class="form-group">
+        <p>Tank balance (litres)</p>
+        <input type="number" class="form-control" [(ngModel)]="data.tankBalance">
+      </div>
+      <div class="form-group">
+        <p>Estimated one-day sales (litres)</p>
+        <input type="number" class="form-control" [(ngModel)]="data.oneDaySales">
+      </div>
+      <p>Tank safety: 
+        <span [class]="tankSafetyClass(data.tankSafety())">{{data.tankSafety() | number:'1.3-3'}}%</span>
+      </p>
+      <table class="table">
+        <tr>
+          <th>Day</th>
+          <th>Fuel (litres)</th>
+          <th>Cost (RM)</th>
+        </tr>
+        <tr *ngFor="let day of data.fuelReceivingByDay; let i = index; trackBy: trackByFn">
+          <td>{{i + 1}}</td>
+          <td><input type="number" style="width:60%;" [(ngModel)]="data.fuelReceivingByDay[i]" (ngModelChange)="onFuelDataChange(n)"></td>
+          <td>{{day * data.fuelCost() | number:'1.2-2'}}</td>
+        </tr>
+        <tr>
+          <th>Sum</th>
+          <th>{{data.fuelReceiving | number:'1.0-2'}}</th>
+          <th>{{data.fuelReceiving * data.fuelCost() | number:'1.2-2'}}</th>
+        </tr>
+      </table>
+      <div class="btn-group btn-group-justified" role="group">
+        <div class="btn-group" role="group">
+          <button class="btn btn-default" (click)="addDay(n)" [disabled]="data.fuelReceivingByDay.length >= 5"><span class="glyphicon glyphicon-plus"></span> Add</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button class="btn btn-default" (click)="removeDay(n)" [disabled]="data.fuelReceivingByDay.length <= 1"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+        </div>
+      </div>
+      <br>
+      <div class="btn-group btn-group-justified" role="group">
+        <div class="btn-group" role="group">
+          <button class="btn btn-warning" (click)="resetFuelData(n)">Reset all values in Fuel Type {{n+1}}</button>
+        </div>
+      </div>
+    </accordion-group>
+  </accordion>
+</div>
+
+<div class="col-md-8">
+  <app-bank-balance [bankBalance]="bankBalance" [totalFuelCost]="totalFuelCost"></app-bank-balance>
+  <h4 class="text-danger" *ngIf="hasUnsafeTanks()">Tanks for fuel type(s) {{unsafeTanksStr()}} will be over capacity!</h4>
+  <div class="text-muted">
+    <p>Bank account balance: RM{{bankBalance | number:'1.2-2'}}</p>
+    <p>Total fuel receiving cost: RM{{totalFuelCost | number:'1.2-2'}}</p>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <tr>
+        <th>Fuel Type</th>
+        <th *ngFor="let data of inputData; let n = index">{{n+1}}</th>
+      </tr>
+      <tr>
+        <th>Quantity (litres)</th>
+        <td *ngFor="let data of inputData">{{data.fuelReceiving | number:'1.0-2'}}</td>
+      </tr>
+      <tr>
+        <th>Cost (RM)</th>
+        <td *ngFor="let data of inputData">{{data.fuelReceiving * data.fuelCost() | number:'1.2-2'}}</td>
+      </tr>
+      <tr>
+        <th>Tank capacity (litres)</th>
+        <td *ngFor="let data of inputData">{{data.tankCapacity | number:'1.0-2'}}</td>
+      </tr>
+      <tr>
+        <th>Tank ullage (%)</th>
+        <td *ngFor="let data of inputData">{{data.tankUllage | number:'1.0-2'}}</td>
+      </tr>
+      <tr>
+        <th>Tank capacity after ullage (litres)</th>
+        <td *ngFor="let data of inputData">{{data.tankCapAfterUllage() | number:'1.0-2'}}</td>
+      </tr>
+      <tr>
+        <th>Tank balance (litres)</th>
+        <td *ngFor="let data of inputData">{{data.tankBalance | number:'1.0-2'}}</td>
+      </tr>
+      <tr>
+        <th>Estimated one-day sales (litres)</th>
+        <td *ngFor="let data of inputData">{{data.oneDaySales | number:'1.0-2'}}</td>
+      </tr>
+      <tr>
+        <th>Expected tank balance after<br>delivery and sales (litres)</th>
+        <td *ngFor="let data of inputData">{{data.tankBalAfterDeliveryAndSales() | number:'1.0-2'}}</td>
+      </tr>
+      <tr>
+        <th>Tank safety (%)</th>
+        <td *ngFor="let data of inputData" [class]="tankSafetyClass(data.tankSafety())">{{data.tankSafety() | number:'1.3-3'}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

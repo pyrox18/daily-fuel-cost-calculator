@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AccordionModule } from 'ngx-bootstrap';
+
 import { AppRoutingModule } from './app-routing.module';
 import { FuelPriceService } from './services/fuel-price.service';
 
@@ -27,6 +29,7 @@ import { BankBalanceComponent } from './components/bank-balance/bank-balance.com
     BankBalanceComponent
   ],
   imports: [
+    AccordionModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
