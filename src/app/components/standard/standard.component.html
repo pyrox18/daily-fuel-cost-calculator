@@ -1,3 +1,57 @@
-<p>
-  standard works!
-</p>
+<app-bank-balance [bankBalance]="bankBalance" [totalFuelCost]="totalFuelCost"></app-bank-balance>
+
+<div class="text-muted">
+  <p>Bank account balance: RM{{bankBalance | number:'1.2-2'}}</p>
+  <p>Total fuel receiving cost: RM{{totalFuelCost | number:'1.2-2'}}</p>
+</div>
+<br>
+
+<form class="form-inline">
+  <div class="form-group">
+    <p>Current bank account balance (RM): <input type="number" class="form-control" [(ngModel)]="bankBalance" name="bankBalance"></p>
+  </div>
+</form>
+<hr>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let data of inputData; let n = index">
+    <p>Fuel type:
+      <select [(ngModel)]="data.fuelPrice">
+        <option *ngFor="let fuel of fuelPriceService.fuelPrices" [value]="fuel.price">{{fuel.name}}</option>
+      </select>
+    </p>
+    <div class="form-group">
+      <p>Fuel commission (RM)</p>
+      <input type="number" class="form-control" [(ngModel)]="data.fuelCommission">
+    </div>
+    <p>Fuel cost: RM{{data.fuelCost() | number:'1.2-6'}}/litre</p>
+    <table class="table">
+      <tr>
+        <th>Day</th>
+        <th>Fuel (litres)</th>
+        <th>Cost (RM)</th>
+      </tr>
+      <tr *ngFor="let day of data.fuelReceivingByDay; let i = index; trackBy: trackByFn">
+        <td>{{i + 1}}</td>
+        <td><input type="number" style="width:60%;" [(ngModel)]="data.fuelReceivingByDay[i]" (ngModelChange)="onFuelDataChange(n)"></td>
+        <td>{{day * data.fuelCost() | number:'1.2-2'}}</td>
+      </tr>
+      <tr>
+        <th>Sum</th>
+        <th>{{data.fuelReceiving | number:'1.0-2'}}</th>
+        <th>{{data.fuelReceiving * data.fuelCost() | number:'1.2-2'}}</th>
+      </tr>
+    </table>
+    <div class="btn-group btn-group-justified" role="group">
+      <div class="btn-group" role="group">
+        <button class="btn btn-default" (click)="addDay(n)" [disabled]="data.fuelReceivingByDay.length >= 5"><span class="glyphicon glyphicon-plus"></span> Add</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button class="btn btn-default" (click)="removeDay(n)" [disabled]="data.fuelReceivingByDay.length <= 1"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button class="btn btn-default" (click)="resetFuelData(n)"><span class="glyphicon glyphicon-trash"></span> Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
