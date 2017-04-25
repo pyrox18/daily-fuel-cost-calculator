@@ -22,7 +22,7 @@
     </p>
     <div class="form-group">
       <p>Fuel commission (RM)</p>
-      <input type="number" class="form-control" [(ngModel)]="data.fuelCommission">
+      <input type="number" class="form-control" [(ngModel)]="data.fuelCommission" (ngModelChange)="recalcTotalFuelCost()">
     </div>
     <p>Fuel cost: RM{{data.fuelCost() | number:'1.2-6'}}/litre</p>
     <table class="table">
