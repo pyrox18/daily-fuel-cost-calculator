@@ -58,6 +58,7 @@ export class AdvancedComponent implements OnInit {
   }
 
   resetAllValues() {
+    this.bankBalance = 0.00
     for (let i = 0; i < this.inputData.length; i++) {
       this.resetFuelData(i);
     }
