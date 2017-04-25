@@ -20,12 +20,17 @@ export class StandardComponent implements OnInit {
 
   ngOnInit() {
     this.bankBalance = 0.00;
-    this.inputData = []
-    for (let i = 0; i < 3; i++) {
-      this.inputData.push(new StandardFuel());
-      this.inputData[i].fuelPrice = this.fuelPriceService.fuelPrices[i].price;
-    }
+    this.inputData = [];
     this.totalFuelCost = 0;
+    this.fuelPriceService.getFuelPrices()
+      .subscribe(
+        data => {
+          for (let i = 0; i < 3; i++) {
+            this.inputData.push(new StandardFuel());
+            this.inputData[i].fuelPrice = this.fuelPriceService.fuelPrices[i].price;
+          }
+        }
+      );
   }
 
   recalcTotalFuelCost() {

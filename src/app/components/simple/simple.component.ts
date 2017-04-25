@@ -20,7 +20,12 @@ export class SimpleComponent implements OnInit {
   ngOnInit() {
     this.bankBalance = 0.00;
     this.inputData = new SimpleFuel();
-    this.inputData.fuelPrice = this.fuelPriceService.fuelPrices[0].price;
+    this.fuelPriceService.getFuelPrices()
+      .subscribe(
+        data => {
+          this.inputData.fuelPrice = this.fuelPriceService.fuelPrices[0].price;
+        }
+      );
   }
 
 }

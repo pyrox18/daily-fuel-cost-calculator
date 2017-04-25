@@ -24,13 +24,18 @@ export class AdvancedComponent implements OnInit {
   ngOnInit() {
     this.bankBalance = 0.00;
     this.inputData = []
-    for (let i = 0; i < 4; i++) {
-      this.inputData.push(new AdvancedFuel());
-      this.inputData[i].fuelPrice = this.fuelPriceService.fuelPrices[i].price;
-      this.inputData[i].tankCapacity = AdvancedComponent.tankCapacityDefault;
-      this.inputData[i].tankUllage = AdvancedComponent.tankUllageDefault;
-    }
     this.totalFuelCost = 0;
+    this.fuelPriceService.getFuelPrices()
+      .subscribe(
+        data => {
+          for (let i = 0; i < 4; i++) {
+            this.inputData.push(new AdvancedFuel());
+            this.inputData[i].fuelPrice = this.fuelPriceService.fuelPrices[i].price;
+            this.inputData[i].tankCapacity = AdvancedComponent.tankCapacityDefault;
+            this.inputData[i].tankUllage = AdvancedComponent.tankUllageDefault;
+          }
+        }
+      );
   }
 
   recalcTotalFuelCost() {
