@@ -16,6 +16,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { AboutComponent } from './components/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BankBalanceComponent } from './components/bank-balance/bank-balance.component';
+import { FloatsOnlyDirective } from './directives/floats-only.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BankBalanceComponent } from './components/bank-balance/bank-balance.com
     PageNotFoundComponent,
     AboutComponent,
     NavbarComponent,
-    BankBalanceComponent
+    BankBalanceComponent,
+    FloatsOnlyDirective
   ],
   imports: [
     AccordionModule.forRoot(),
