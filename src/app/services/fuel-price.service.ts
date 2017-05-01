@@ -19,7 +19,7 @@ export class FuelPriceService {
 
   getFuelPrices() {
     if (!this.fuelPrices) {
-      return this.http.get('../../assets/fuel-price.json')
+      return this.http.get('https://api.myjson.com/bins/q0dwp')
         .map(res => res.json())
         .map(
           data => this.fuelPrices = data,
