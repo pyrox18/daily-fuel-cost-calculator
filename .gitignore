@@ -1,8 +1,0 @@
-
-*.js~
-.DS_Store
-*.html~
-*.css~
-*.yml~
-*.json~
-node_modules/
