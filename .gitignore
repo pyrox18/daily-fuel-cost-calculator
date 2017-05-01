@@ -1,4 +1,4 @@
-
+dist/
 *.js~
 .DS_Store
 *.html~
