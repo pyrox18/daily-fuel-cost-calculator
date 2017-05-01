@@ -1,6 +1,6 @@
 # Daily Fuel Cost Calculator
 
-[![Build Status](https://travis-ci.org/pyrox18/daily-fuel-cost-calculator.svg?branch=master)](https://travis-ci.org/pyrox18/daily-fuel-cost-calculator)
+***This branch is no longer maintained and only serves as an archive for the AngularJS version of this app.***
 
 Introduction
 --------------------------------------------------------------------------------
