@@ -5,9 +5,6 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of'
 
-// IMPORTANT: GET request will be performed by dist version on fuel-price.json in ./dist/assets, NOT the url stated here
-// Perform price changes on the dist version, leave the dev version as-is/use placeholders
-
 @Injectable()
 export class FuelPriceService {
   
@@ -19,7 +16,7 @@ export class FuelPriceService {
 
   getFuelPrices() {
     if (!this.fuelPrices) {
-      return this.http.get('https://api.myjson.com/bins/q0dwp')
+      return this.http.get('https://quarkbackend.com/getfile/pyrox18/malaysiafuelprices')
         .map(res => res.json())
         .map(
           data => this.fuelPrices = data,
