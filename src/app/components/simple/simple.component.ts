@@ -14,7 +14,7 @@ export class SimpleComponent implements OnInit {
   bankBalance: number;
 
   constructor(
-    private fuelPriceService: FuelPriceService
+    public fuelPriceService: FuelPriceService
   ) { }
 
   ngOnInit() {

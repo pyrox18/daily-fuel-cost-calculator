@@ -18,7 +18,7 @@ export class AdvancedComponent implements OnInit {
   totalFuelCost: number;
 
   constructor(
-    private fuelPriceService: FuelPriceService
+    public fuelPriceService: FuelPriceService
   ) { }
 
   ngOnInit() {
