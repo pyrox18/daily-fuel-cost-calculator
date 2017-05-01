@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
+import 'rxjs/add/operator/map';
+
 // IMPORTANT: GET request will be performed by dist version on fuel-price.json in ./dist/assets, NOT the url stated here
 // Perform price changes on the dist version, leave the dev version as-is/use placeholders
 
