@@ -19,26 +19,12 @@ $ cd daily-fuel-cost-calculator
 
 This project is built with Angular CLI, and all Angular CLI commands are available.
 
-To run the project:
-
-```bash
-$ ng serve # or 'ng s'
-```
-
-To run unit tests via Karma:
-
-```bash
-$ ng test # or 'ng t'
-```
-
-The project is built into the docs folder for hosting on GitHub Pages.
-
-To build:
-
-```bash
-$ npm run build
-# Runs 'ng build -op ./docs/ --prod'
-```
+* To run the application, do `ng serve` or `ng s`.
+* To run unit tests via Karma, do `ng test` or `ng t`.
+* To build, run `ng build`.
+* To directly publish to GitHub Pages \(with the help of angular-cli-ghpages\):
+  1. Modify the `publish` script in `package.json` to point to your GitHub username and repository name.
+  2. Do `npm run publish`.
 
 *Note: End-to-end \(E2E\) tests are not yet implemented.*
 
