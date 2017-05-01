@@ -1,28 +1,51 @@
-# DailyFuelCostCalculator
+# Daily Fuel Cost Calculator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+[![Build Status](https://travis-ci.org/pyrox18/daily-fuel-cost-calculator.svg?branch=master)](https://travis-ci.org/pyrox18/daily-fuel-cost-calculator)
 
-## Development server
+## Introduction
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Calculator for petrol station dealers to find out how much money they need to satisfy a fuel delivery. Three modes (Simple, Standard, and Advanced) are available for use according to the user's requirements.
 
-## Code scaffolding
+This web application is accessible through the URL https://pyrox18.github.io/daily-fuel-cost-calculator.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+## Installation and Usage
 
-## Build
+Clone the repository:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```bash
+$ git clone https://github.com/pyrox18/daily-fuel-cost-calculator.git
+$ cd daily-fuel-cost-calculator
+```
 
-## Running unit tests
+This project is built with Angular CLI, and all Angular CLI commands are available.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To run the project:
 
-## Running end-to-end tests
+```bash
+$ ng serve # or 'ng s'
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+To run unit tests via Karma:
 
-## Further help
+```bash
+$ ng test # or 'ng t'
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The project is built into the docs folder for hosting on GitHub Pages.
+
+To build:
+
+```bash
+$ npm run build
+# Runs 'ng build -op ./docs/ --prod'
+```
+
+*Note: End-to-end \(E2E\) tests are not yet implemented.*
+
+## License
+
+The Daily Fuel Cost Calculator server is distributed under the terms of the [GNU General Public License v3.0](https://github.com/pyrox18/daily-fuel-cost-calculator/blob/master/LICENSE).
+
+## Special Thanks
+
+- [Glyphicons](https://glyphicons.com) - UI icons
