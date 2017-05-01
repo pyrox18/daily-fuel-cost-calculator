@@ -12,7 +12,7 @@
   <form>
     <div class="form-group">
       <p>Current bank account balance (RM)</p>
-      <input type="number" class="form-control" [(ngModel)]="bankBalance" name="bankBalance">
+      <input type="number" class="form-control" [(ngModel)]="bankBalance" name="bankBalance" appFloatsOnly>
     </div>
     <div class="form-group">
       <p>Fuel type</p>
@@ -22,11 +22,11 @@
     </div>
     <div class="form-group">
       <p>Fuel commision (RM)</p>
-      <input type="number" class="form-control" [(ngModel)]="inputData.fuelCommission" name="fuelCommission">
+      <input type="number" class="form-control" [(ngModel)]="inputData.fuelCommission" name="fuelCommission" appFloatsOnly>
     </div>
     <div class="form-group">
       <p>Amount of fuel you are receiving (litres)</p>
-      <input type="number" class="form-control" [(ngModel)]="inputData.fuelReceiving" name="fuelReceiving">
+      <input type="number" class="form-control" [(ngModel)]="inputData.fuelReceiving" name="fuelReceiving" appFloatsOnly>
     </div>
   </form>
 </div>

@@ -3,7 +3,7 @@
   <br>
 
   <p>Bank account balance (RM)</p>
-  <input type="number" class="form-control" [(ngModel)]="bankBalance">
+  <input type="number" class="form-control" [(ngModel)]="bankBalance" appFloatsOnly>
   <br>
 
   <accordion>
@@ -16,26 +16,26 @@
       </p>
       <div class="form-group">
         <p>Fuel commission (RM)</p>
-        <input type="number" class="form-control" [(ngModel)]="data.fuelCommission" (ngModelChange)="recalcTotalFuelCost()">
+        <input type="number" class="form-control" [(ngModel)]="data.fuelCommission" (ngModelChange)="recalcTotalFuelCost()" appFloatsOnly>
       </div>
       <div class="form-group">
         <p>Fuel cost: RM{{data.fuelCost() | number:'1.2-6'}}/litre</p>
       </div>
       <div class="form-group">
         <p>Tank capacity (litres)</p>
-        <input type="number" class="form-control" [(ngModel)]="data.tankCapacity">
+        <input type="number" class="form-control" [(ngModel)]="data.tankCapacity" appFloatsOnly>
       </div>
       <div class="form-group">
         <p>Tank ullage (%)</p>
-        <input type="number" class="form-control" [(ngModel)]="data.tankUllage">
+        <input type="number" class="form-control" [(ngModel)]="data.tankUllage" appFloatsOnly>
       </div>
       <div class="form-group">
         <p>Tank balance (litres)</p>
-        <input type="number" class="form-control" [(ngModel)]="data.tankBalance">
+        <input type="number" class="form-control" [(ngModel)]="data.tankBalance" appFloatsOnly>
       </div>
       <div class="form-group">
         <p>Estimated one-day sales (litres)</p>
-        <input type="number" class="form-control" [(ngModel)]="data.oneDaySales">
+        <input type="number" class="form-control" [(ngModel)]="data.oneDaySales" appFloatsOnly>
       </div>
       <p>Tank safety: 
         <span [class]="tankSafetyClass(data.tankSafety())">{{data.tankSafety() | number:'1.3-3'}}%</span>
@@ -48,7 +48,7 @@
         </tr>
         <tr *ngFor="let day of data.fuelReceivingByDay; let i = index; trackBy: trackByFn">
           <td>{{i + 1}}</td>
-          <td><input type="number" style="width:60%;" [(ngModel)]="data.fuelReceivingByDay[i]" (ngModelChange)="onFuelDataChange(n)"></td>
+          <td><input type="number" style="width:60%;" [(ngModel)]="data.fuelReceivingByDay[i]" (ngModelChange)="onFuelDataChange(n)" appFloatsOnly></td>
           <td>{{day * data.fuelCost() | number:'1.2-2'}}</td>
         </tr>
         <tr>

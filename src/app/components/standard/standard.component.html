@@ -8,7 +8,7 @@
 
 <form class="form-inline">
   <div class="form-group">
-    <p>Current bank account balance (RM): <input type="number" class="form-control" [(ngModel)]="bankBalance" name="bankBalance"></p>
+    <p>Current bank account balance (RM): <input type="number" class="form-control" [(ngModel)]="bankBalance" name="bankBalance" appFloatsOnly></p>
   </div>
 </form>
 <hr>
@@ -22,7 +22,7 @@
     </p>
     <div class="form-group">
       <p>Fuel commission (RM)</p>
-      <input type="number" class="form-control" [(ngModel)]="data.fuelCommission" (ngModelChange)="recalcTotalFuelCost()">
+      <input type="number" class="form-control" [(ngModel)]="data.fuelCommission" (ngModelChange)="recalcTotalFuelCost()" appFloatsOnly>
     </div>
     <p>Fuel cost: RM{{data.fuelCost() | number:'1.2-6'}}/litre</p>
     <table class="table">
@@ -33,7 +33,7 @@
       </tr>
       <tr *ngFor="let day of data.fuelReceivingByDay; let i = index; trackBy: trackByFn">
         <td>{{i + 1}}</td>
-        <td><input type="number" style="width:60%;" [(ngModel)]="data.fuelReceivingByDay[i]" (ngModelChange)="onFuelDataChange(n)"></td>
+        <td><input type="number" style="width:60%;" [(ngModel)]="data.fuelReceivingByDay[i]" (ngModelChange)="onFuelDataChange(n)" appFloatsOnly></td>
         <td>{{day * data.fuelCost() | number:'1.2-2'}}</td>
       </tr>
       <tr>
