@@ -32,7 +32,10 @@ export class FloatsOnlyDirective {
 
     // Remove leading 0 if input >= 1
     if (this.el.nativeElement.value >= 1 && this.el.nativeElement.value[0] == 0) {
-      let newStr = this.el.nativeElement.value.slice(1);
+      let newStr = this.el.nativeElement.value;
+      while (newStr[0] == 0) {
+        newStr = newStr.slice(1);
+      }
       this.el.nativeElement.value = newStr;
     }
   }
