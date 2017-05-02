@@ -18,7 +18,8 @@
     <p>Fuel type:
       <select [(ngModel)]="data.fuelPrice">
         <option *ngFor="let fuel of fuelPriceService.fuelPrices" [value]="fuel.price">{{fuel.name}}</option>
-      </select>
+      </select> 
+      (RM{{data.fuelPrice | number:'1.2-2'}}/litre)
     </p>
     <div class="form-group">
       <p>Fuel commission (RM)</p>
