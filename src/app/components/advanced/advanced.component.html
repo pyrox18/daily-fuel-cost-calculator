@@ -8,12 +8,14 @@
 
   <accordion>
     <accordion-group *ngFor="let data of inputData; let n = index" heading="Fuel Type {{n+1}}">
-      <p>Fuel type 
-        <select [(ngModel)]="data.fuelPrice">
-          <option *ngFor="let fuel of fuelPriceService.fuelPrices" [value]="fuel.price">{{fuel.name}}</option>
-        </select> 
-        (RM{{data.fuelPrice | number:'1.2-2'}}/litre)
-      </p>
+      <div class="form-inline">
+        <p>Fuel type: 
+          <select class="form-control" [(ngModel)]="data.fuelPrice">
+            <option *ngFor="let fuel of fuelPriceService.fuelPrices" [value]="fuel.price">{{fuel.name}}</option>
+          </select> 
+          (RM{{data.fuelPrice | number:'1.2-2'}}/litre)
+        </p>
+      </div>
       <div class="form-group">
         <p>Fuel commission (RM)</p>
         <input type="number" class="form-control" [(ngModel)]="data.fuelCommission" (ngModelChange)="recalcTotalFuelCost()" appFloatsOnly>
@@ -48,7 +50,7 @@
         </tr>
         <tr *ngFor="let day of data.fuelReceivingByDay; let i = index; trackBy: trackByFn">
           <td>{{i + 1}}</td>
-          <td><input type="number" style="width:60%;" [(ngModel)]="data.fuelReceivingByDay[i]" (ngModelChange)="onFuelDataChange(n)" appFloatsOnly></td>
+          <td><input type="number" class="form-control" style="width:60%;" [(ngModel)]="data.fuelReceivingByDay[i]" (ngModelChange)="onFuelDataChange(n)" appFloatsOnly></td>
           <td>{{day * data.fuelCost() | number:'1.2-2'}}</td>
         </tr>
         <tr>
